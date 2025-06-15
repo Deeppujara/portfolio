@@ -24,7 +24,6 @@
       color: var(--text-main);
     }
 
-    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -98,32 +97,56 @@
 
     .hero {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: center;
-      padding: 60px 40px;
-      background: linear-gradient(to right, #f0f0f0, #e6e6e6);
+      align-items: center;
+      padding: 60px 20px;
     }
 
     .hero-card {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
-      background-color: #fff;
+      width: 100%;
+      max-width: 1200px;
+      background-color: #f3f3f3;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-      max-width: 800px;
+      padding: 40px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
     }
 
     .hero-img img {
-      width: 260px;
-      height: 260px;
+      width: 280px;
+      height: 280px;
       border-radius: 50%;
       border: 6px solid var(--accent-color);
       object-fit: cover;
       margin-bottom: 20px;
+    }
+
+    .hero-img .roles {
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    .hero-img .roles div {
+      margin-bottom: 10px;
+    }
+
+    .hero-img img.role-icon {
+      height: 20px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .hero-text {
+      flex: 2;
     }
 
     .hero-text h1 {
@@ -137,29 +160,13 @@
       font-size: 1.4em;
       font-weight: 600;
       color: #333;
-      margin-bottom: 12px;
-    }
-
-    .hero-role {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 1.1em;
-      gap: 8px;
       margin-bottom: 20px;
-    }
-
-    .hero-role img {
-      height: 20px;
-      vertical-align: middle;
-      margin-left: 6px;
     }
 
     .hero-text p {
       font-size: 1.15em;
-      margin-top: 10px;
       line-height: 1.6;
-      max-width: 600px;
+      max-width: 100%;
     }
 
     section {
@@ -190,7 +197,6 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Deep Pujara</div>
     <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
@@ -199,6 +205,7 @@
       <div></div>
     </div>
     <nav class="nav-links">
+      <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#publications">Publications</a>
@@ -207,25 +214,23 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
+  <section class="hero" id="about">
     <div class="hero-card">
       <div class="hero-img">
         <img src="profile.png" alt="Deep Pujara" />
+        <div class="roles">
+          <div>Ph.D. Student at ASU <img src="asu_logo.png" alt="ASU" class="role-icon" /></div>
+          <div>Embedded ML Intern at Skyworks <img src="skyworks_logo.png" alt="Skyworks" class="role-icon" /></div>
+        </div>
       </div>
       <div class="hero-text">
         <h1>Deep Pujara</h1>
         <div class="hero-subtitle">Machine Learning and Solar Researcher</div>
-        <div class="hero-role">
-          <div>Ph.D. Student at ASU <img src="asu_logo.png" alt="ASU" /></div>
-          <div>Embedded ML Intern at Skyworks <img src="skyworks_logo.png" alt="Skyworks" /></div>
-        </div>
         <p>Ph.D. student at Arizona State University specializing in solar energy systems, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.</p>
       </div>
     </div>
   </section>
 
-  <!-- Experience -->
   <section id="experience">
     <h2>Experience</h2>
     <ul>
@@ -235,7 +240,6 @@
     </ul>
   </section>
 
-  <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <ul>
@@ -245,7 +249,6 @@
     </ul>
   </section>
 
-  <!-- Publications -->
   <section id="publications">
     <h2>Publications</h2>
     <ul>
@@ -255,7 +258,6 @@
     </ul>
   </section>
 
-  <!-- Presentations -->
   <section id="presentations">
     <h2>Presentations</h2>
     <ul>
@@ -264,7 +266,6 @@
     </ul>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:dpujara1@asu.edu">dpujara1@asu.edu</a></p>
@@ -272,7 +273,6 @@
     <a href="Deep_Pujara_Resume.pdf" download>Download Resume</a>
   </section>
 
-  <!-- Footer -->
   <footer>
     &copy; 2025 Deep Pujara | Built with HTML/CSS | Hosted on GitHub Pages
   </footer>

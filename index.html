@@ -185,6 +185,23 @@
       position: relative;
       top: -6px;
     }
+
+    .resume-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #334346;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 600;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      background-color: #222f30;
+    }
   </style>
 </head>
 
@@ -212,20 +229,23 @@
 
   <!-- Hero / About Section -->
   <section class="hero" id="about">
-    <div class="hero-card">
-      <div class="hero-img">
-        <img src="profile.png" alt="Deep Pujara" />
+    <div class="hero-text">
+      <h1>Deep Pujara</h1>
+      <div class="hero-subtitle">Machine Learning and Solar Researcher</div>
+      <div class="role-line">
+        AI Intern at <img src="skyworks_logo.png" alt="Skyworks" class="role-icon" />
       </div>
-      <div class="hero-text">
-        <h1>Deep Pujara</h1>
-        <div class="hero-subtitle">Machine Learning and Solar Researcher</div>
-        <div class="role-line">
-          AI Intern at <img src="skyworks_logo.png" alt="Skyworks" />
-        </div>
-        <p>
-          I'm a Ph.D. student at Arizona State University specializing in solar energy, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.
-        </p>
-      </div>
+      <p>
+        I'm a Ph.D. student at Arizona State University specializing in solar energy, embedded machine learning, and signal processing...
+      </p>
+
+      <!-- Resume Button -->
+      <a href="Deep_Pujara_Resume.pdf" class="resume-btn" target="_blank">View Resume</a>
+    </div>
+
+    <!-- Profile photo second -->
+    <div class="hero-img">
+      <img src="profile.png" alt="Deep Pujara" />
     </div>
   </section>
 

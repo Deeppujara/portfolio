@@ -105,12 +105,12 @@
     .hero-card {
       display: flex;
       width: 100%;
-      max-width: 1200px;
-      background-color: #f3f3f3;
+      max-width: 1300px;
+      background-color: #dcdcdc; /* light gray */
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-      padding: 40px;
-      gap: 40px;
+      padding: 60px 60px;
+      gap: 60px;
       align-items: center;
     }
 
@@ -122,27 +122,29 @@
     }
 
     .hero-img img {
-      width: 280px;
-      height: 280px;
+      width: 320px; /* bigger photo */
+      height: 320px;
       border-radius: 50%;
       border: 6px solid var(--accent-color);
       object-fit: cover;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .hero-img .roles {
-      text-align: center;
-      font-size: 1.1em;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+      /* Removed text, only logos */
     }
 
-    .hero-img .roles div {
-      margin-bottom: 10px;
-    }
-
+    /* Style logos: no border, smaller size */
     .hero-img img.role-icon {
-      height: 20px;
-      margin-left: 6px;
-      vertical-align: middle;
+      border: none !important;
+      width: 60px;
+      height: auto;
+      margin: 0;
+      border-radius: 0;
     }
 
     .hero-text {
@@ -150,21 +152,21 @@
     }
 
     .hero-text h1 {
-      font-size: 3em;
+      font-size: 3.6em;
       font-family: var(--font-heading);
       color: var(--text-heading);
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .hero-subtitle {
-      font-size: 1.4em;
+      font-size: 1.6em;
       font-weight: 600;
       color: #333;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .hero-text p {
-      font-size: 1.15em;
+      font-size: 1.25em;
       line-height: 1.6;
       max-width: 100%;
     }
@@ -219,8 +221,8 @@
       <div class="hero-img">
         <img src="profile.png" alt="Deep Pujara" />
         <div class="roles">
-          <div>Ph.D. Student at ASU <img src="asu_logo.png" alt="ASU" class="role-icon" /></div>
-          <div>Embedded ML Intern at Skyworks <img src="skyworks_logo.png" alt="Skyworks" class="role-icon" /></div>
+          <img src="asu_logo.png" alt="ASU" class="role-icon" />
+          <img src="skyworks_logo.png" alt="Skyworks" class="role-icon" />
         </div>
       </div>
       <div class="hero-text">

@@ -105,12 +105,12 @@
     .hero-card {
       display: flex;
       width: 100%;
-      max-width: 1300px;
-      background-color: #dcdcdc; /* light gray */
+      max-width: 1400px; /* Increased from 1200px */
+      background-color: #f3f3f3;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-      padding: 60px 60px;
-      gap: 60px;
+      padding: 60px; /* Increased from 40px */
+      gap: 50px; /* Increased from 40px */
       align-items: center;
     }
 
@@ -122,29 +122,27 @@
     }
 
     .hero-img img {
-      width: 320px; /* bigger photo */
-      height: 320px;
+      width: 4000px; /* Increased from 280px */
+      height: 4000px; /* Increased from 280px */
       border-radius: 50%;
       border: 6px solid var(--accent-color);
       object-fit: cover;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .hero-img .roles {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-      align-items: center;
-      /* Removed text, only logos */
+      text-align: center;
+      font-size: 1.1em;
     }
 
-    /* Style logos: no border, smaller size */
+    .hero-img .roles div {
+      margin-bottom: 10px;
+    }
+
     .hero-img img.role-icon {
-      border: none !important;
-      width: 60px;
-      height: auto;
-      margin: 0;
-      border-radius: 0;
+      height: 20px;
+      margin-left: 6px;
+      vertical-align: middle;
     }
 
     .hero-text {
@@ -152,21 +150,21 @@
     }
 
     .hero-text h1 {
-      font-size: 3.6em;
+      font-size: 3em;
       font-family: var(--font-heading);
       color: var(--text-heading);
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .hero-subtitle {
-      font-size: 1.6em;
+      font-size: 1.4em;
       font-weight: 600;
       color: #333;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .hero-text p {
-      font-size: 1.25em;
+      font-size: 1.15em;
       line-height: 1.6;
       max-width: 100%;
     }
@@ -221,8 +219,8 @@
       <div class="hero-img">
         <img src="profile.png" alt="Deep Pujara" />
         <div class="roles">
-          <img src="asu_logo.png" alt="ASU" class="role-icon" />
-          <img src="skyworks_logo.png" alt="Skyworks" class="role-icon" />
+          <div>Ph.D. Student at <img src="asu_logo.png" alt="ASU" class="role-icon" /></div>
+          <div>Embedded ML Intern at <img src="skyworks_logo.png" alt="Skyworks" class="role-icon" /></div>
         </div>
       </div>
       <div class="hero-text">

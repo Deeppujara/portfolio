@@ -100,56 +100,63 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 60px 40px;
       background: linear-gradient(to right, #f0f0f0, #e6e6e6);
     }
 
-    .hero-img {
-      flex: 1 1 250px;
+    .hero-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      max-width: 800px;
     }
 
     .hero-img img {
-      width: 300px;
-      height: 300px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
-      border: 4px solid var(--accent-color);
+      border: 6px solid var(--accent-color);
       object-fit: cover;
-    }
-
-    .hero-text {
-      flex: 2 1 400px;
-      padding: 20px;
+      margin-bottom: 20px;
     }
 
     .hero-text h1 {
-      font-size: 3.2em;
+      font-size: 3em;
       font-family: var(--font-heading);
       color: var(--text-heading);
-      margin-bottom: 0.2em;
+      margin-bottom: 10px;
     }
 
-    .hero-text .subtitle {
+    .hero-subtitle {
       font-size: 1.4em;
       font-weight: 600;
-      margin: 5px 0;
+      color: #333;
+      margin-bottom: 12px;
     }
 
-    .hero-text .roles {
-      font-size: 1.1em;
+    .hero-role {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
+      font-size: 1.1em;
+      gap: 8px;
+      margin-bottom: 20px;
     }
 
-    .hero-text .roles img {
+    .hero-role img {
       height: 20px;
       vertical-align: middle;
+      margin-left: 6px;
     }
 
     .hero-text p {
-      font-size: 1.2em;
+      font-size: 1.15em;
       margin-top: 10px;
       line-height: 1.6;
       max-width: 600px;
@@ -168,7 +175,8 @@
       margin-bottom: 20px;
     }
 
-    section ul, section p {
+    section ul,
+    section p {
       font-size: 1.05em;
       line-height: 1.7;
     }
@@ -191,7 +199,6 @@
       <div></div>
     </div>
     <nav class="nav-links">
-      <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#publications">Publications</a>
@@ -202,21 +209,19 @@
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="hero-img">
-      <img src="profile.png" alt="Deep Pujara" />
-    </div>
-    <div class="hero-text">
-      <h1>Deep Pujara</h1>
-      <div class="subtitle">Machine Learning and Solar Researcher</div>
-      <div class="roles">
-        <span>Ph.D. student at ASU</span>
-        <img src="asu_logo.png" alt="ASU Logo" />
+    <div class="hero-card">
+      <div class="hero-img">
+        <img src="profile.png" alt="Deep Pujara" />
       </div>
-      <div class="roles">
-        <span>Embedded ML Intern at Skyworks</span>
-        <img src="skyworks_logo.png" alt="Skyworks Logo" />
+      <div class="hero-text">
+        <h1>Deep Pujara</h1>
+        <div class="hero-subtitle">Machine Learning and Solar Researcher</div>
+        <div class="hero-role">
+          <div>Ph.D. Student at ASU <img src="asu_logo.png" alt="ASU" /></div>
+          <div>Embedded ML Intern at Skyworks <img src="skyworks_logo.png" alt="Skyworks" /></div>
+        </div>
+        <p>Ph.D. student at Arizona State University specializing in solar energy systems, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.</p>
       </div>
-      <p>Ph.D. student at Arizona State University specializing in solar energy systems, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.</p>
     </div>
   </section>
 

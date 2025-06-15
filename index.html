@@ -4,235 +4,151 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Pujara | Portfolio</title>
-  <link rel="icon" href="profile.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="profile.jpg" type="image/jpeg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary-color: #004080;
-      --accent-color: #007BFF;
-      --bg-color: #f8f9fa;
-      --font-main: 'Inter', sans-serif;
-      --font-heading: 'Poppins', sans-serif;
+      --nav-height: 80px;
+      --nav-bg: #fff;
+      --nav-link: #004080;
+      --nav-link-active: #007BFF;
+      --nav-link-hover-bg: rgba(0, 123, 255, 0.1);
+      --nav-link-border: #007BFF;
+      --nav-font-size: 1.25em;
+      --nav-shadow: 0 2px 8px rgba(0,64,128,0.06);
     }
 
     body {
-      margin: 0;
-      font-family: var(--font-main);
-      background-color: var(--bg-color);
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fa;
       color: #333;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Navbar */
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
+      background: var(--nav-bg);
+      height: var(--nav-height);
+      box-shadow: var(--nav-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      font-size: var(--nav-font-size);
     }
 
-    .navbar .logo {
-      font-family: var(--font-heading);
-      font-size: 1.8em;
-      font-weight: 600;
-      color: var(--primary-color);
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
     }
 
-    .navbar .nav-links {
+    .navbar-links {
       display: flex;
       gap: 20px;
     }
 
-    .nav-links a {
+    .nav-link {
+      color: var(--nav-link);
       text-decoration: none;
-      color: var(--primary-color);
       font-weight: 600;
-      position: relative;
-      transition: color 0.3s ease;
+      padding: 10px 16px;
+      border-radius: 50px;
+      border: 2px solid transparent;
+      transition: all 0.2s ease-in-out;
     }
 
-    .nav-links a:hover {
-      color: var(--accent-color);
+    .nav-link:hover {
+      border: 2px solid var(--nav-link-border);
+      background-color: var(--nav-link-hover-bg);
+      color: var(--nav-link-active);
     }
 
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 60px 40px;
-      background: linear-gradient(to right, #f0f4f8, #ffffff);
-    }
-
-    .hero-img {
-      flex: 1 1 250px;
-      text-align: center;
-    }
-
-    .hero-img img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 4px solid var(--accent-color);
-      object-fit: cover;
-    }
-
-    .hero-text {
-      flex: 2 1 400px;
-      padding: 20px;
-    }
-
-    .hero-text h1 {
-      font-size: 2.6em;
-      font-family: var(--font-heading);
-      color: var(--primary-color);
-    }
-
-    .hero-text p {
-      font-size: 1.2em;
-      margin-top: 10px;
-      line-height: 1.6;
-      max-width: 600px;
-    }
-
-    /* Section */
-    section {
-      padding: 60px 40px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    section h2 {
-      font-family: var(--font-heading);
-      color: var(--primary-color);
+    .navbar-right {
       font-size: 2em;
-      margin-bottom: 20px;
+      font-weight: 800;
+      color: var(--nav-link);
+      letter-spacing: 0.5px;
     }
 
-    section ul, section p {
-      font-size: 1.05em;
-      line-height: 1.7;
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2em;
+      cursor: pointer;
+      color: var(--nav-link);
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.95em;
-      color: #666;
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
       .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 0 20px;
       }
 
-      .nav-links {
-        flex-direction: column;
+      .navbar-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
         width: 100%;
-        margin-top: 10px;
+        flex-direction: column;
+        background: white;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        padding: 10px 0;
       }
 
-      .hero {
-        flex-direction: column;
-        align-items: center;
+      .navbar-links.open {
+        display: flex;
+      }
+
+      .nav-link {
+        padding: 14px;
+        border-radius: 0;
+        width: 100%;
         text-align: center;
       }
 
-      .hero-text {
-        padding: 20px 0;
+      .navbar-toggle {
+        display: block;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Deep Pujara</div>
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#presentations">Presentations</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-img">
-      <img src="profile.png" alt="Deep Pujara" />
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="navbar-right">Deep Pujara</div>
+      <div class="navbar-links" id="navbar-links">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#publications">Publications</a>
+        <a class="nav-link" href="#presentations">Presentations</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
     </div>
-    <div class="hero-text">
-      <h1>Deep Pujara</h1>
-      <p>Ph.D. student at Arizona State University specializing in solar energy systems, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.</p>
-    </div>
-  </section>
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">&#9776;</button>
+  </nav>
 
-  <!-- About -->
-  <section id="about">
-    <h2>About</h2>
-    <p>Ph.D. student at Arizona State University with a focus on Solar, Signal Processing, and Embedded ML. Strong in both hardware and software, with industry experience, IEEE publications, and academic honors.</p>
-  </section>
+  <script>
+    const toggleBtn = document.getElementById('navbar-toggle');
+    const navLinks = document.getElementById('navbar-links');
+    const allLinks = navLinks.querySelectorAll('.nav-link');
 
-  <!-- Experience -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <ul>
-      <li>Graduate Research Associate — SenSIP Lab, ASU (2021–Present)</li>
-      <li>Broadcast Application Engineering Intern — Skyworks, Austin (Summer 2023)</li>
-      <li>Research Intern — ISRO (SAC), India (Jan–Jun 2021)</li>
-    </ul>
-  </section>
+    toggleBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
 
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><b>EdgeVoice:</b> Real-time wake word detection using embedded CNN on Arduino BLE</li>
-      <li><b>Real-Time Object Detection:</b> Quantized YOLO deployed on edge devices for surveillance</li>
-      <li><b>PV Automation:</b> AutoHotKey scripts for data collection every 3 minutes</li>
-    </ul>
-  </section>
-
-  <!-- Publications -->
-  <section id="publications">
-    <h2>Publications</h2>
-    <ul>
-      <li>Real-time PV Fault Detection (ICPS 2024)</li>
-      <li>Infrared Vision for Utility-Scale PV Inspection (IISA 2024)</li>
-      <li>Design of a New PV Monitoring Device (IISA 2023)</li>
-    </ul>
-  </section>
-
-  <!-- Presentations -->
-  <section id="presentations">
-    <h2>Presentations</h2>
-    <ul>
-      <li>SenSIP Consortium, ASU — 2022, 2023, 2024</li>
-      <li>Arizona Student Energy Conference — 2023</li>
-    </ul>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:dpujara1@asu.edu">dpujara1@asu.edu</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/deep07-pujara/">deep07-pujara</a></p>
-    <a href="Deep_Pujara_Resume.pdf" download>Download Resume</a>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Deep Pujara | Built with HTML/CSS | Hosted on GitHub Pages
-  </footer>
+    allLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

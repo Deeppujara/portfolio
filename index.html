@@ -4,199 +4,186 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Pujara | Portfolio</title>
-  <link rel="icon" href="profile.jpg" type="image/jpeg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="profile.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --nav-height: 80px;
-      --nav-bg: #fff;
-      --nav-link: #004080;
-      --nav-link-active: #007BFF;
-      --nav-link-bg-hover: #f3f7fa;
-      --nav-link-border: #e0e7ef;
-      --nav-link-radius: 16px;
-      --nav-font-size: 1.18em;
-      --nav-font-size-mobile: 1em;
-      --nav-shadow: 0 2px 8px rgba(0,64,128,0.06);
+      --primary-color: #004080;
+      --accent-color: #007BFF;
+      --bg-color: #f8f9fa;
+      --font-main: 'Inter', sans-serif;
+      --font-heading: 'Poppins', sans-serif;
     }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f8f9fa;
-      color: #333;
       margin: 0;
-      padding: 0;
+      font-family: var(--font-main);
+      background-color: var(--bg-color);
+      color: #333;
     }
+
+    /* Navbar */
     .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: var(--nav-bg);
-      height: var(--nav-height);
-      box-shadow: var(--nav-shadow);
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-family: var(--font-heading);
+      font-size: 1.8em;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .navbar .nav-links {
       display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      padding: 0 50px;
-      font-size: var(--nav-font-size);
-      transition: font-size 0.2s;
+      padding: 60px 40px;
+      background: linear-gradient(to right, #f0f4f8, #ffffff);
     }
-    .navbar-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 1;
-      min-width: 0;
+
+    .hero-img {
+      flex: 1 1 250px;
+      text-align: center;
     }
-    .navbar-links {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: nowrap;
-      min-width: 0;
+
+    .hero-img img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 4px solid var(--accent-color);
+      object-fit: cover;
     }
-    .nav-link {
-      color: var(--nav-link);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 20px;
-      border-radius: var(--nav-link-radius);
-      border: 2px solid transparent;
-      background: transparent;
-      transition: 
-        background 0.18s,
-        border 0.18s,
-        color 0.18s;
-      display: flex;
-      align-items: center;
-      margin-right: 4px;
-      white-space: nowrap;
-      font-size: inherit;
-      box-sizing: border-box;
-      position: relative;
+
+    .hero-text {
+      flex: 2 1 400px;
+      padding: 20px;
     }
-    .nav-link:hover {
-      background: var(--nav-link-bg-hover);
-      border: 2px solid var(--nav-link-active);
-      color: var(--nav-link-active);
-      z-index: 2;
+
+    .hero-text h1 {
+      font-size: 2.6em;
+      font-family: var(--font-heading);
+      color: var(--primary-color);
     }
-    .nav-link.active {
-      background: var(--nav-link-bg-hover);
-      border: 2px solid var(--nav-link-active);
-      color: var(--nav-link-active);
-      z-index: 1;
+
+    .hero-text p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      line-height: 1.6;
+      max-width: 600px;
     }
-    .navbar-right {
-      margin-left: 32px;
-      font-weight: 800;
-      font-size: 2.1em;
-      color: var(--nav-link);
-      white-space: nowrap;
-      user-select: none;
-      letter-spacing: 0.01em;
+
+    /* Section */
+    section {
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin: auto;
     }
-    /* Hamburger menu */
-    .navbar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2.2em;
-      margin-left: 12px;
-      color: var(--nav-link);
-      cursor: pointer;
+
+    section h2 {
+      font-family: var(--font-heading);
+      color: var(--primary-color);
+      font-size: 2em;
+      margin-bottom: 20px;
     }
+
+    section ul, section p {
+      font-size: 1.05em;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95em;
+      color: #666;
+    }
+
     /* Responsive */
-    @media (max-width: 1100px) {
+    @media (max-width: 768px) {
       .navbar {
-        padding: 0 20px;
-        font-size: 1em;
-      }
-      .navbar-right {
-        font-size: 1.45em;
-      }
-    }
-    @media (max-width: 800px) {
-      .navbar {
-        font-size: var(--nav-font-size-mobile);
-        padding: 0 10px;
-      }
-      .navbar-links {
-        gap: 2px;
-      }
-      .nav-link {
-        padding: 7px 10px;
-        font-size: 0.97em;
-      }
-      .navbar-right {
-        font-size: 1.1em;
-      }
-    }
-    @media (max-width: 600px) {
-      .navbar {
-        height: 58px;
-        font-size: 0.98em;
-      }
-      .navbar-links {
-        display: none;
-        position: absolute;
-        top: var(--nav-height);
-        left: 0;
-        width: 100vw;
-        background: var(--nav-bg);
         flex-direction: column;
         align-items: flex-start;
-        box-shadow: 0 6px 24px rgba(0,64,128,0.09);
-        padding: 16px 0 8px 0;
-        z-index: 100;
       }
-      .navbar-links.open {
-        display: flex;
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
       }
-      .nav-link {
-        width: 100vw;
-        border-radius: 0;
-        border-left: 4px solid transparent;
-        border-right: none;
-        margin: 0;
-        padding: 12px 28px;
-        font-size: 1.1em;
+
+      .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
-      .navbar-toggle {
-        display: block;
-      }
-      .navbar-right {
-        font-size: 1.15em;
-        margin-left: 0;
+
+      .hero-text {
+        padding: 20px 0;
       }
     }
   </style>
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar-left">
-      <div class="navbar-links" id="navbar-links">
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#experience">Experience</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#publications">Publications</a>
-        <a class="nav-link" href="#presentations">Presentations</a>
-        <a class="nav-link" href="#contact">Contact</a>
-      </div>
-      <button class="navbar-toggle" id="navbar-toggle" aria-label="Open navigation">
-        &#9776;
-      </button>
-    </div>
-    <div class="navbar-right">
-      Deep Pujara
-    </div>
-  </nav>
+  <header class="navbar">
+    <div class="logo">Deep Pujara</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Sections (examples, replace with your includes or content) -->
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-img">
+      <img src="profile.png" alt="Deep Pujara" />
+    </div>
+    <div class="hero-text">
+      <h1>Deep Pujara</h1>
+      <p>Ph.D. student at Arizona State University specializing in solar energy systems, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.</p>
+    </div>
+  </section>
+
+  <!-- About -->
   <section id="about">
     <h2>About</h2>
-    <p>Ph.D. student at Arizona State University focused on Solar, Signal Processing, and Embedded ML. Strong in both hardware and software, with industry experience, IEEE publications, and academic honors.</p>
+    <p>Ph.D. student at Arizona State University with a focus on Solar, Signal Processing, and Embedded ML. Strong in both hardware and software, with industry experience, IEEE publications, and academic honors.</p>
   </section>
+
+  <!-- Experience -->
   <section id="experience">
     <h2>Experience</h2>
     <ul>
@@ -205,14 +192,18 @@
       <li>Research Intern — ISRO (SAC), India (Jan–Jun 2021)</li>
     </ul>
   </section>
+
+  <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li>EdgeVoice: Real-time wake word detection using embedded CNN on Arduino BLE</li>
-      <li>Real-Time Object Detection: Quantized YOLO deployed on edge devices for surveillance</li>
-      <li>PV Automation: AutoHotKey scripts for data collection every 3 minutes</li>
+      <li><b>EdgeVoice:</b> Real-time wake word detection using embedded CNN on Arduino BLE</li>
+      <li><b>Real-Time Object Detection:</b> Quantized YOLO deployed on edge devices for surveillance</li>
+      <li><b>PV Automation:</b> AutoHotKey scripts for data collection every 3 minutes</li>
     </ul>
   </section>
+
+  <!-- Publications -->
   <section id="publications">
     <h2>Publications</h2>
     <ul>
@@ -221,6 +212,8 @@
       <li>Design of a New PV Monitoring Device (IISA 2023)</li>
     </ul>
   </section>
+
+  <!-- Presentations -->
   <section id="presentations">
     <h2>Presentations</h2>
     <ul>
@@ -228,74 +221,18 @@
       <li>Arizona Student Energy Conference — 2023</li>
     </ul>
   </section>
+
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:dpujara1@asu.edu">dpujara1@asu.edu</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/deep07-pujara/">deep07-pujara</a></p>
-    <a href="Deep_Pujara_Resume.pdf" class="resume-btn" download>Download Resume</a>
+    <a href="Deep_Pujara_Resume.pdf" download>Download Resume</a>
   </section>
+
+  <!-- Footer -->
   <footer>
-    <div style="margin-top:10px;">
-      &copy; 2025 Deep Pujara | Built with HTML/CSS | Hosted on GitHub Pages
-    </div>
+    &copy; 2025 Deep Pujara | Built with HTML/CSS | Hosted on GitHub Pages
   </footer>
-  <script>
-    // Hamburger menu toggle
-    const toggleBtn = document.getElementById('navbar-toggle');
-    const links = document.getElementById('navbar-links');
-    toggleBtn.addEventListener('click', function() {
-      links.classList.toggle('open');
-    });
-
-    // Only one nav item highlighted at a time (hover or active)
-    const navLinks = document.querySelectorAll('.nav-link');
-    let activeIndex = 0;
-
-    // Highlight nav based on scroll
-    function updateActiveNav() {
-      const sections = Array.from(navLinks).map(link => document.getElementById(link.getAttribute('href').slice(1)));
-      let scrollPos = window.scrollY || window.pageYOffset;
-      let found = false;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        if (sections[i] && sections[i].offsetTop - 90 <= scrollPos) {
-          navLinks.forEach(link => link.classList.remove('active'));
-          navLinks[i].classList.add('active');
-          activeIndex = i;
-          found = true;
-          break;
-        }
-      }
-      if (!found) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        navLinks[0].classList.add('active');
-        activeIndex = 0;
-      }
-    }
-    window.addEventListener('scroll', updateActiveNav);
-    window.addEventListener('DOMContentLoaded', updateActiveNav);
-
-    // Only show hover highlight on hovered link, not on active at the same time
-    navLinks.forEach((link, i) => {
-      link.addEventListener('mouseenter', function() {
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
-      link.addEventListener('mouseleave', function() {
-        updateActiveNav();
-      });
-      link.addEventListener('click', function() {
-        if (window.innerWidth <= 600) {
-          links.classList.remove('open');
-        }
-      });
-    });
-
-    // Prevent nav links from wrapping
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 600) {
-        links.classList.remove('open');
-      }
-    });
-  </script>
 </body>
 </html>

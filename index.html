@@ -6,10 +6,8 @@
   <title>Deep Pujara | Portfolio</title>
   <link rel="icon" href="profile.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet"/>
-
   <!-- tsParticles CDN -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
   <style>
     :root {
       --primary-color: #ffffff;
@@ -21,7 +19,6 @@
       --font-heading: 'Poppins', sans-serif;
     }
 
-    /* Set up full-screen background container */
     #tsparticles {
       position: fixed;
       width: 100%;
@@ -129,12 +126,12 @@
       z-index: 1;
     }
 
-
     .hero-img {
       display: flex;
       flex-direction: column;
       align-items: center;
       flex: 1;
+      margin-left: 70px;
     }
 
     .hero-img img {
@@ -157,6 +154,24 @@
       color: var(--text-heading);
       margin-bottom: 10px;
       margin-top: -30px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wave {
+      display: inline-block;
+      animation: wave 1.5s infinite;
+      transform-origin: 70% 70%;
+      font-size: 1.1em;
+    }
+    @keyframes wave {
+      0%, 60%, 100% { transform: rotate(0deg);}
+      10% { transform: rotate(14deg);}
+      20% { transform: rotate(-8deg);}
+      30% { transform: rotate(14deg);}
+      40% { transform: rotate(-4deg);}
+      50% { transform: rotate(10deg);}
     }
 
     .hero-subtitle {
@@ -175,18 +190,25 @@
     .role-line {
       font-size: 1.2em;
       font-weight: 550;
-      color: #333;
+      color: #07384e;
       margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 8px;
-      
+      min-height: 32px;
+      letter-spacing: 0.5px;
     }
 
-    .role-line img {
-      height: 40px;
-      position: relative;
-      top: -10px;
+    #typewriter-company {
+      border-right: 2px solid #334346;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #334346; }
     }
 
     .resume-btn {
@@ -205,9 +227,13 @@
     .resume-btn:hover {
       background-color: #222f30;
     }
+
+    .company-color {
+      color: #003193; /* Change this to your desired color */
+    }
+
   </style>
 </head>
-
 <body>
   <!-- Particle Background Container -->
   <div id="tsparticles"></div>
@@ -233,20 +259,17 @@
   <!-- Hero / About Section -->
   <section class="hero" id="about">
     <div class="hero-text">
-      <h1>👋🏻 Hi, I am</h1><h1>Deep Pujara</h1>
+      <h1><span class="wave">👋🏻</span> Hi, I am</h1>
+      <h1>Deep Pujara</h1>
       <div class="hero-subtitle">Machine Learning and Solar Researcher</div>
       <div class="role-line">
-        AI Intern at Skyworks Solutions
+        AI Intern at<span id="typewriter-company"></span>
       </div>
       <p>
         I'm a Ph.D. student at Arizona State University specializing in solar energy, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.
       </p>
-
-      <!-- Resume Button -->
       <a href="Deep_Pujara_Resume.pdf" class="resume-btn" target="_blank">View Resume</a>
     </div>
-
-    <!-- Profile photo second -->
     <div class="hero-img">
       <img src="profile.png" alt="Deep Pujara" />
     </div>
@@ -288,6 +311,33 @@
         }
       }
     });
+
+    // Typewriter effect for company name only
+    const company = "Skyworks Solutions";
+    const typeElem = document.getElementById("typewriter-company");
+    let letterIndex = 0;
+    let typing = true;
+
+    function typeCompanyLoop() {
+      if (typing) {
+        if (letterIndex <= company.length) {
+          typeElem.innerHTML = `<span class="company-color">${company.slice(0, letterIndex++)}</span>`;
+          setTimeout(typeCompanyLoop, 90);
+        } else {
+          typing = false;
+          setTimeout(typeCompanyLoop, 1200); // Pause at end of phrase
+        }
+      } else {
+        if (letterIndex > 0) {
+          typeElem.innerHTML = `<span class="company-color">${company.slice(0, --letterIndex)}</span>`;
+          setTimeout(typeCompanyLoop, 40);
+        } else {
+          typing = true;
+          setTimeout(typeCompanyLoop, 500);
+        }
+      }
+    }
+    typeCompanyLoop();
   </script>
 </body>
 </html>

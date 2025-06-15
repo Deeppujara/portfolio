@@ -1,16 +1,16 @@
-<!DOCTYPE html> <!-- Declares this is an HTML5 document -->
-<html lang="en"> <!-- Starts the HTML document and sets the language to English -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" /> <!-- Character encoding -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive design -->
-  <title>Deep Pujara | Portfolio</title> <!-- Tab title -->
-  <link rel="icon" href="profile.png" /> <!-- Favicon -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deep Pujara | Portfolio</title>
+  <link rel="icon" href="profile.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet"/>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <!-- tsParticles CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
   <style>
-    /* CSS Variables */
     :root {
       --primary-color: #ffffff;
       --accent-color: #4a5354;
@@ -21,7 +21,16 @@
       --font-heading: 'Poppins', sans-serif;
     }
 
-    /* Base Styles */
+    /* Set up full-screen background container */
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
     body {
       margin: 0;
       font-family: var(--font-main);
@@ -29,7 +38,6 @@
       color: var(--text-main);
     }
 
-    /* Navigation Bar */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -39,10 +47,9 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 10;
     }
 
-    /* Logo */
     .navbar .logo {
       font-family: var(--font-heading);
       font-size: 1.8em;
@@ -50,10 +57,8 @@
       color: var(--text-heading);
     }
 
-    /* Nav Links */
     .navbar .nav-links {
       display: flex;
-      gap: 0px;
     }
 
     .nav-links a {
@@ -71,7 +76,6 @@
       border: 2px solid #334346;
     }
 
-    /* Hamburger (Mobile) */
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -103,45 +107,28 @@
       }
     }
 
-    /* Hero Section with Live Background */
     .hero {
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 30px 20px;
-      position: relative;
-      overflow: hidden;
       min-height: 100vh;
-      background: linear-gradient(-45deg, #e3f2fd, #fce4ec, #f3e5f5, #e8f5e9);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
+      position: relative;
     }
 
-    @keyframes gradientBG {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* Hero Card (Transparent now) */
     .hero-card {
       display: flex;
       width: 100%;
       max-width: 1400px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
       padding: 60px;
       gap: 50px;
       align-items: center;
-      background: transparent;
-      box-shadow: none;
+      z-index: 1;
     }
 
-    /* Left: Profile Image */
     .hero-img {
       display: flex;
       flex-direction: column;
@@ -158,7 +145,6 @@
       margin-bottom: 20px;
     }
 
-    /* Right: Text Info */
     .hero-text {
       flex: 2;
     }
@@ -168,7 +154,7 @@
       font-family: var(--font-heading);
       color: var(--text-heading);
       margin-bottom: 10px;
-      margin-top: -30px; /* Move name a little up */
+      margin-top: -30px;
     }
 
     .hero-subtitle {
@@ -184,7 +170,6 @@
       max-width: 100%;
     }
 
-    /* Skyworks Line */
     .role-line {
       font-size: 1.2em;
       font-weight: 500;
@@ -197,24 +182,23 @@
     .role-line img {
       height: 40px;
       position: relative;
-      top: -6px; /* Push logo up */
+      top: -6px;
     }
   </style>
 </head>
 
 <body>
+  <!-- Particle Background Container -->
+  <div id="tsparticles"></div>
+
   <!-- Navigation Header -->
   <header class="navbar">
     <div class="logo">Deep Pujara</div>
-
-    <!-- Mobile Hamburger -->
     <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
       <div></div>
       <div></div>
       <div></div>
     </div>
-
-    <!-- Nav Items -->
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -228,17 +212,14 @@
   <!-- Hero / About Section -->
   <section class="hero" id="about">
     <div class="hero-card">
-      <!-- Profile Picture -->
       <div class="hero-img">
         <img src="profile.png" alt="Deep Pujara" />
       </div>
-
-      <!-- Text Content -->
       <div class="hero-text">
         <h1>Deep Pujara</h1>
         <div class="hero-subtitle">Machine Learning and Solar Researcher</div>
         <div class="role-line">
-          AI Intern at <img src="skyworks_logo.png" alt="Skyworks" class="role-icon" />
+          AI Intern at <img src="skyworks_logo.png" alt="Skyworks" />
         </div>
         <p>
           I'm a Ph.D. student at Arizona State University specializing in solar energy, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.
@@ -246,5 +227,43 @@
       </div>
     </div>
   </section>
+
+  <!-- tsParticles Config Script -->
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      background: { color: "#ffffff00" },
+      particles: {
+        number: { value: 50 },
+        color: { value: "#6a6a6a" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: { min: 1, max: 5 } },
+        move: {
+          enable: true,
+          speed: 1.5,
+          direction: "none",
+          outModes: "bounce"
+        },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#6a6a6a",
+          opacity: 0.3,
+          width: 1
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { quantity: 4 }
+        }
+      }
+    });
+  </script>
 </body>
 </html>

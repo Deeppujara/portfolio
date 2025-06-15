@@ -14,212 +14,232 @@
       margin: 0;
       padding: 0;
     }
-
     /* Navigation Bar */
     .header-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-      padding: 12px 40px;
+      box-shadow: 0 2px 8px rgba(0, 64, 128, 0.06);
+      padding: 0 60px;
       position: sticky;
       top: 0;
       z-index: 100;
+      height: 90px;
+      min-height: 80px;
     }
-
     .nav-left .nav-name {
       color: #004080;
-      font-weight: 700;
-      font-size: 1.8em;
+      font-weight: 800;
+      font-size: 2.6em;
       margin: 0;
       user-select: none;
+      letter-spacing: 0.02em;
     }
-
-    .nav-right a {
-      margin-left: 24px;
+    .nav-right {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    .nav-link {
+      margin-left: 36px;
       color: #004080;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1em;
-      padding-bottom: 2px;
-      transition: color 0.2s, border-bottom 0.2s;
+      font-weight: 700;
+      font-size: 1.3em;
+      padding: 12px 22px;
+      border-radius: 10px;
+      transition: 
+        background 0.18s,
+        border 0.18s,
+        color 0.18s;
+      border: 2px solid transparent;
+      position: relative;
+      box-sizing: border-box;
+      height: 54px;
+      display: flex;
+      align-items: center;
     }
-
-    .nav-right a:hover {
+    .nav-link:hover,
+    .nav-link.active {
+      background: #e6f0ff;
+      border: 2px solid #007BFF;
       color: #007BFF;
-      border-bottom: 2px solid #007BFF;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.13);
     }
-
-    /* Header */
+    /* Responsive */
+    @media (max-width: 900px) {
+      .header-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 20px;
+        height: auto;
+      }
+      .nav-left .nav-name {
+        font-size: 2em;
+        margin-bottom: 6px;
+      }
+      .nav-right {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .nav-link {
+        margin-left: 0;
+        margin-right: 16px;
+        font-size: 1em;
+        padding: 8px 14px;
+        height: 40px;
+      }
+    }
     header {
       background-color: #007BFF;
       color: white;
       padding: 20px 40px;
       text-align: center;
     }
-
     .contact {
       margin-top: -15px;
       margin-bottom: 30px;
       color: #e0e0e0;
       font-size: 1em;
     }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 8vw 4vw;
-      background-color: #e6f0ff;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3em;
-      margin: 0.2em 0;
-      color: #004080;
-      user-select: none;
-    }
-
-    .hero img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 20px 0;
-      border: 4px solid #007BFF;
-    }
-
-    /* Sections */
     section {
       padding: 40px 5vw;
       max-width: 960px;
       margin: auto;
     }
-
     h2 {
       color: #004080;
       margin-top: 0;
       user-select: none;
     }
-
-    ul {
-      line-height: 1.6;
-      padding-left: 1.2em;
-    }
-
-    .highlight {
-      background-color: #ffecd1;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 18px;
-      transition: box-shadow 0.2s;
-    }
-
-    .highlight:hover {
-      box-shadow: 0 4px 16px rgba(0, 123, 255, 0.12);
-    }
-
-    .resume-btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 24px;
-      background: #007BFF;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .resume-btn:hover {
-      background: #004080;
-    }
-
-    /* Social Icons */
-    .social-icons {
-      margin-top: 14px;
-      text-align: center;
-    }
-
-    .social-icons a {
-      display: inline-block;
-      margin: 0 8px;
-      vertical-align: middle;
-    }
-
-    .social-icons svg {
-      width: 24px;
-      height: 24px;
-      fill: #fff;
-      transition: fill 0.2s;
-    }
-
-    .social-icons a:hover svg {
-      fill: #ffd700;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #004080;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .header-nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 12px 20px;
-      }
-      .nav-right {
-        margin-top: 8px;
-      }
-      .nav-right a {
-        margin-left: 0;
-        margin-right: 16px;
-        font-size: 1em;
-      }
-      .hero h1 {
-        font-size: 2em;
-      }
-      section {
-        padding: 24px 2vw;
-      }
-    }
+    /* ...rest of your styles (hero, highlights, etc.)... */
   </style>
 </head>
 <body>
   <!-- Navigation -->
-  <div w3-include-html="nav.html"></div>
+  <nav class="header-nav">
+    <div class="nav-left">
+      <h1 class="nav-name">Deep Pujara</h1>
+    </div>
+    <div class="nav-right">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#publications">Publications</a>
+      <a class="nav-link" href="#presentations">Presentations</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </div>
+  </nav>
 
-  <!-- Header -->
-  <div w3-include-html="header.html"></div>
+  <!-- You can keep your header.html, hero.html, etc. as includes, or just paste the sections here directly. Example below: -->
 
-  <!-- Hero -->
-  <div w3-include-html="hero.html"></div>
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Ph.D. student at Arizona State University focused on Solar, Signal Processing, and Embedded ML. 
+      Strong in both hardware and software, with industry experience, IEEE publications, and academic honors.
+    </p>
+  </section>
 
-  <!-- Content Sections -->
-  <div w3-include-html="summary.html"></div>
-  <div w3-include-html="education.html"></div>
-  <div w3-include-html="experience.html"></div>
-  <div w3-include-html="projects.html"></div>
-  <div w3-include-html="publications.html"></div>
-  <div w3-include-html="presentations.html"></div>
-  <div w3-include-html="skills.html"></div>
-  <div w3-include-html="contact.html"></div>
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="highlight">
+      <p><b>Graduate Research Associate</b> — SenSIP Lab, ASU (2021–Present)</p>
+      <ul>
+        <li>Developed embedded ML algorithm for solar topology classification</li>
+        <li>Real-time PV fault detection with 85.97% accuracy</li>
+        <li>Designed PV monitoring hardware with accurate sensors and fast transmission</li>
+      </ul>
+    </div>
+    <div class="highlight">
+      <p><b>Broadcast Application Engineering Intern</b> — Skyworks, Austin (Summer 2023)</p>
+      <ul>
+        <li>Developed USB-SPI bridge (Rev 2.0) using ORCAD and C++</li>
+      </ul>
+    </div>
+    <div class="highlight">
+      <p><b>Research Intern</b> — ISRO (SAC), India (Jan–Jun 2021)</p>
+      <ul>
+        <li>Signal recovery using FFT, eigen analysis, and transforms</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Footer -->
-  <div w3-include-html="footer.html"></div>
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><b>EdgeVoice:</b> Real-time wake word detection using embedded CNN on Arduino BLE</li>
+      <li><b>Real-Time Object Detection:</b> Quantized YOLO deployed on edge devices for surveillance</li>
+      <li><b>PV Automation:</b> AutoHotKey scripts for data collection every 3 minutes</li>
+    </ul>
+  </section>
 
-  <!-- Include.js script for HTML includes -->
-  <script src="include.js"></script>
-  <script>includeHTML();</script>
+  <section id="publications">
+    <h2>Publications</h2>
+    <p>8 IEEE papers including:</p>
+    <ul>
+      <li>Real-time PV Fault Detection (ICPS 2024)</li>
+      <li>Infrared Vision for Utility-Scale PV Inspection (IISA 2024)</li>
+      <li>Design of a New PV Monitoring Device (IISA 2023)</li>
+    </ul>
+  </section>
+
+  <section id="presentations">
+    <h2>Presentations</h2>
+    <ul>
+      <li>SenSIP Consortium, ASU — 2022, 2023, 2024</li>
+      <li>Arizona Student Energy Conference — 2023</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:dpujara1@asu.edu">dpujara1@asu.edu</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/deep07-pujara/">deep07-pujara</a></p>
+    <a href="Deep_Pujara_Resume.pdf" class="resume-btn" download>Download Resume</a>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://github.com/deep07-pujara" target="_blank" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.867 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.533 1.032 1.533 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.112-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.447-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.849-2.338 4.696-4.566 4.946.36.31.68.921.68 1.857 0 1.34-.012 2.419-.012 2.749 0 .267.18.578.688.48A10.025 10.025 0 0 0 22 12.021C22 6.484 17.523 2 12 2z"></path></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/deep07-pujara/" target="_blank" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.792-1.75-1.732s.784-1.732 1.75-1.732 1.75.792 1.75 1.732-.784 1.732-1.75 1.732zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.871-3.063-1.872 0-2.159 1.462-2.159 2.973v5.694h-3v-10h2.881v1.367h.041c.401-.762 1.381-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.6v5.596z"></path></svg>
+      </a>
+    </div>
+    <div style="margin-top:10px;">
+      &copy; 2025 Deep Pujara | Built with HTML/CSS | Hosted on GitHub Pages
+    </div>
+  </footer>
+
+  <!-- Active Section JS -->
+  <script>
+    // Get all nav links and section ids
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sectionIds = Array.from(navLinks).map(link => link.getAttribute('href').replace('#',''));
+    const sections = sectionIds.map(id => document.getElementById(id));
+
+    function onScroll() {
+      let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+      let offset = 120; // header height + some margin
+      let activeIdx = 0;
+      for (let i = 0; i < sections.length; i++) {
+        if (sections[i] && sections[i].offsetTop - offset <= scrollPos) {
+          activeIdx = i;
+        }
+      }
+      navLinks.forEach((link, i) => {
+        if (i === activeIdx) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('DOMContentLoaded', onScroll);
+  </script>
 </body>
 </html>

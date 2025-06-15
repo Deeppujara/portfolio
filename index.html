@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Declares this is an HTML5 document -->
+<html lang="en"> <!-- Starts the HTML document and sets the language to English -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deep Pujara | Portfolio</title>
-  <link rel="icon" href="profile.png" />
+  <meta charset="UTF-8" /> <!-- Sets the character encoding to UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Makes the site responsive on mobile -->
+  <title>Deep Pujara | Portfolio</title> <!-- Sets the title of the tab -->
+  <link rel="icon" href="profile.png" /> <!-- Sets the tab icon to your profile picture -->
+  
+  <!-- Google Fonts used for styling text -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+
   <style>
+    /* CSS Variables for consistent theming */
     :root {
       --primary-color: #ffffff;
       --accent-color: #4a5354;
@@ -17,6 +21,7 @@
       --font-heading: 'Poppins', sans-serif;
     }
 
+    /* Base body styles */
     body {
       margin: 0;
       font-family: var(--font-main);
@@ -24,18 +29,20 @@
       color: var(--text-main);
     }
 
+    /* Top navigation bar */
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; /* Flex layout */
+      justify-content: space-between; /* Logo on left, links on right */
+      align-items: center; /* Vertically center items */
       padding: 20px 40px;
       background-color: #fff;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-      position: sticky;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      position: sticky; /* Stays at top on scroll */
       top: 0;
-      z-index: 1000;
+      z-index: 1000; /* On top of all other elements */
     }
 
+    /* Logo text */
     .navbar .logo {
       font-family: var(--font-heading);
       font-size: 1.8em;
@@ -43,11 +50,13 @@
       color: var(--text-heading);
     }
 
+    /* Navigation links container */
     .navbar .nav-links {
       display: flex;
       gap: 0px;
     }
 
+    /* Each navigation link */
     .nav-links a {
       text-decoration: none;
       color: var(--text-heading);
@@ -58,17 +67,20 @@
       transition: all 0.3s ease;
     }
 
+    /* Hover effect for navigation links */
     .nav-links a:hover {
       color: #334346;
       border: 2px solid #334346;
     }
 
+    /* Hamburger menu for mobile */
     .menu-toggle {
       display: none;
       flex-direction: column;
       cursor: pointer;
     }
 
+    /* Hamburger menu bars */
     .menu-toggle div {
       width: 25px;
       height: 3px;
@@ -76,6 +88,7 @@
       margin: 4px 0;
     }
 
+    /* Responsive behavior: small screen */
     @media (max-width: 768px) {
       .menu-toggle {
         display: flex;
@@ -94,6 +107,7 @@
       }
     }
 
+    /* Hero section (About) */
     .hero {
       display: flex;
       justify-content: center;
@@ -101,10 +115,11 @@
       padding: 60px 20px;
     }
 
+    /* Hero content box */
     .hero-card {
       display: flex;
       width: 100%;
-      max-width: 1400px;
+      max-width: 1400px; /* Max width of the card */
       background-color: #f3f3f3;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -113,26 +128,30 @@
       align-items: center;
     }
 
+    /* Left side: profile photo */
     .hero-img {
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex: 1;
+      flex: 1; /* Takes 1 part of space */
     }
 
+    /* Profile image style */
     .hero-img img {
       width: 400px;
       height: 400px;
-      border-radius: 50%;
+      border-radius: 50%; /* Circle shape */
       border: 6px solid var(--accent-color);
       object-fit: cover;
       margin-bottom: 20px;
     }
 
+    /* Right side: name, subtitle, about text */
     .hero-text {
-      flex: 2;
+      flex: 2; /* Takes 2 parts of space */
     }
 
+    /* Main heading (name) */
     .hero-text h1 {
       font-size: 3em;
       font-family: var(--font-heading);
@@ -140,6 +159,7 @@
       margin-bottom: 10px;
     }
 
+    /* Subtitle (profession) */
     .hero-subtitle {
       font-size: 1.4em;
       font-weight: 600;
@@ -147,6 +167,7 @@
       margin-bottom: 20px;
     }
 
+    /* Paragraph description */
     .hero-text p {
       font-size: 1.15em;
       line-height: 1.6;
@@ -154,14 +175,20 @@
     }
   </style>
 </head>
+
 <body>
+  <!-- Header navigation bar -->
   <header class="navbar">
-    <div class="logo">Deep Pujara</div>
+    <div class="logo">Deep Pujara</div> <!-- Logo/Name -->
+    
+    <!-- Hamburger menu icon (mobile only) -->
     <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
       <div></div>
       <div></div>
       <div></div>
     </div>
+
+    <!-- Navigation links -->
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -172,15 +199,21 @@
     </nav>
   </header>
 
+  <!-- Hero / About Section -->
   <section class="hero" id="about">
     <div class="hero-card">
+      <!-- Profile photo -->
       <div class="hero-img">
         <img src="profile.png" alt="Deep Pujara" />
       </div>
+
+      <!-- Text content -->
       <div class="hero-text">
         <h1>Deep Pujara</h1>
         <div class="hero-subtitle">Machine Learning and Solar Researcher</div>
-        <p>Ph.D. student at Arizona State University specializing in solar energy systems, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.</p>
+        <p>
+          Ph.D. student at Arizona State University specializing in solar energy systems, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.
+        </p>
       </div>
     </div>
   </section>

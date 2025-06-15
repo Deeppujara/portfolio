@@ -5,186 +5,222 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Pujara | Portfolio</title>
   <link rel="icon" href="profile.jpg" type="image/jpeg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --nav-height: 80px;
+      --nav-bg: #fff;
+      --nav-link: #004080;
+      --nav-link-active: #007BFF;
+      --nav-link-bg-hover: #f3f7fa;
+      --nav-link-border: #e0e7ef;
+      --nav-link-radius: 16px;
+      --nav-font-size: 1.18em;
+      --nav-font-size-mobile: 1em;
+      --nav-shadow: 0 2px 8px rgba(0,64,128,0.06);
+    }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
+      background: #f8f9fa;
       color: #333;
       margin: 0;
       padding: 0;
     }
-    /* Navigation Bar */
-    .header-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0, 64, 128, 0.06);
-      padding: 0 60px;
+    .navbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      height: 90px;
-      min-height: 80px;
-    }
-    .nav-left .nav-name {
-      color: #004080;
-      font-weight: 800;
-      font-size: 2.6em;
-      margin: 0;
-      user-select: none;
-      letter-spacing: 0.02em;
-    }
-    .nav-right {
+      background: var(--nav-bg);
+      height: var(--nav-height);
+      box-shadow: var(--nav-shadow);
       display: flex;
       align-items: center;
-      height: 100%;
+      justify-content: space-between;
+      padding: 0 50px;
+      font-size: var(--nav-font-size);
+      transition: font-size 0.2s;
+    }
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 1;
+      min-width: 0;
+    }
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+      min-width: 0;
     }
     .nav-link {
-      margin-left: 36px;
-      color: #004080;
+      color: var(--nav-link);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1.3em;
-      padding: 12px 22px;
-      border-radius: 10px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: var(--nav-link-radius);
+      border: 2px solid transparent;
+      background: transparent;
       transition: 
         background 0.18s,
         border 0.18s,
         color 0.18s;
-      border: 2px solid transparent;
-      position: relative;
-      box-sizing: border-box;
-      height: 54px;
       display: flex;
       align-items: center;
+      margin-right: 4px;
+      white-space: nowrap;
+      font-size: inherit;
+      box-sizing: border-box;
+      position: relative;
     }
-    .nav-link:hover,
+    .nav-link:hover {
+      background: var(--nav-link-bg-hover);
+      border: 2px solid var(--nav-link-active);
+      color: var(--nav-link-active);
+      z-index: 2;
+    }
     .nav-link.active {
-      background: #e6f0ff;
-      border: 2px solid #007BFF;
-      color: #007BFF;
-      box-shadow: 0 2px 8px rgba(0,123,255,0.13);
+      background: var(--nav-link-bg-hover);
+      border: 2px solid var(--nav-link-active);
+      color: var(--nav-link-active);
+      z-index: 1;
+    }
+    .navbar-right {
+      margin-left: 32px;
+      font-weight: 800;
+      font-size: 2.1em;
+      color: var(--nav-link);
+      white-space: nowrap;
+      user-select: none;
+      letter-spacing: 0.01em;
+    }
+    /* Hamburger menu */
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2.2em;
+      margin-left: 12px;
+      color: var(--nav-link);
+      cursor: pointer;
     }
     /* Responsive */
-    @media (max-width: 900px) {
-      .header-nav {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 1100px) {
+      .navbar {
         padding: 0 20px;
-        height: auto;
+        font-size: 1em;
       }
-      .nav-left .nav-name {
-        font-size: 2em;
-        margin-bottom: 6px;
+      .navbar-right {
+        font-size: 1.45em;
       }
-      .nav-right {
-        flex-wrap: wrap;
-        gap: 8px;
+    }
+    @media (max-width: 800px) {
+      .navbar {
+        font-size: var(--nav-font-size-mobile);
+        padding: 0 10px;
+      }
+      .navbar-links {
+        gap: 2px;
       }
       .nav-link {
-        margin-left: 0;
-        margin-right: 16px;
-        font-size: 1em;
-        padding: 8px 14px;
-        height: 40px;
+        padding: 7px 10px;
+        font-size: 0.97em;
+      }
+      .navbar-right {
+        font-size: 1.1em;
       }
     }
-    header {
-      background-color: #007BFF;
-      color: white;
-      padding: 20px 40px;
-      text-align: center;
+    @media (max-width: 600px) {
+      .navbar {
+        height: 58px;
+        font-size: 0.98em;
+      }
+      .navbar-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        width: 100vw;
+        background: var(--nav-bg);
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 6px 24px rgba(0,64,128,0.09);
+        padding: 16px 0 8px 0;
+        z-index: 100;
+      }
+      .navbar-links.open {
+        display: flex;
+      }
+      .nav-link {
+        width: 100vw;
+        border-radius: 0;
+        border-left: 4px solid transparent;
+        border-right: none;
+        margin: 0;
+        padding: 12px 28px;
+        font-size: 1.1em;
+      }
+      .navbar-toggle {
+        display: block;
+      }
+      .navbar-right {
+        font-size: 1.15em;
+        margin-left: 0;
+      }
     }
-    .contact {
-      margin-top: -15px;
-      margin-bottom: 30px;
-      color: #e0e0e0;
-      font-size: 1em;
-    }
-    section {
-      padding: 40px 5vw;
-      max-width: 960px;
-      margin: auto;
-    }
-    h2 {
-      color: #004080;
-      margin-top: 0;
-      user-select: none;
-    }
-    /* ...rest of your styles (hero, highlights, etc.)... */
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="header-nav">
-    <div class="nav-left">
-      <h1 class="nav-name">Deep Pujara</h1>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-left">
+      <div class="navbar-links" id="navbar-links">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#publications">Publications</a>
+        <a class="nav-link" href="#presentations">Presentations</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Open navigation">
+        &#9776;
+      </button>
     </div>
-    <div class="nav-right">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#experience">Experience</a>
-      <a class="nav-link" href="#projects">Projects</a>
-      <a class="nav-link" href="#publications">Publications</a>
-      <a class="nav-link" href="#presentations">Presentations</a>
-      <a class="nav-link" href="#contact">Contact</a>
+    <div class="navbar-right">
+      Deep Pujara
     </div>
   </nav>
 
-  <!-- You can keep your header.html, hero.html, etc. as includes, or just paste the sections here directly. Example below: -->
-
+  <!-- Sections (examples, replace with your includes or content) -->
   <section id="about">
     <h2>About</h2>
-    <p>
-      Ph.D. student at Arizona State University focused on Solar, Signal Processing, and Embedded ML. 
-      Strong in both hardware and software, with industry experience, IEEE publications, and academic honors.
-    </p>
+    <p>Ph.D. student at Arizona State University focused on Solar, Signal Processing, and Embedded ML. Strong in both hardware and software, with industry experience, IEEE publications, and academic honors.</p>
   </section>
-
   <section id="experience">
     <h2>Experience</h2>
-    <div class="highlight">
-      <p><b>Graduate Research Associate</b> — SenSIP Lab, ASU (2021–Present)</p>
-      <ul>
-        <li>Developed embedded ML algorithm for solar topology classification</li>
-        <li>Real-time PV fault detection with 85.97% accuracy</li>
-        <li>Designed PV monitoring hardware with accurate sensors and fast transmission</li>
-      </ul>
-    </div>
-    <div class="highlight">
-      <p><b>Broadcast Application Engineering Intern</b> — Skyworks, Austin (Summer 2023)</p>
-      <ul>
-        <li>Developed USB-SPI bridge (Rev 2.0) using ORCAD and C++</li>
-      </ul>
-    </div>
-    <div class="highlight">
-      <p><b>Research Intern</b> — ISRO (SAC), India (Jan–Jun 2021)</p>
-      <ul>
-        <li>Signal recovery using FFT, eigen analysis, and transforms</li>
-      </ul>
-    </div>
+    <ul>
+      <li>Graduate Research Associate — SenSIP Lab, ASU (2021–Present)</li>
+      <li>Broadcast Application Engineering Intern — Skyworks, Austin (Summer 2023)</li>
+      <li>Research Intern — ISRO (SAC), India (Jan–Jun 2021)</li>
+    </ul>
   </section>
-
   <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li><b>EdgeVoice:</b> Real-time wake word detection using embedded CNN on Arduino BLE</li>
-      <li><b>Real-Time Object Detection:</b> Quantized YOLO deployed on edge devices for surveillance</li>
-      <li><b>PV Automation:</b> AutoHotKey scripts for data collection every 3 minutes</li>
+      <li>EdgeVoice: Real-time wake word detection using embedded CNN on Arduino BLE</li>
+      <li>Real-Time Object Detection: Quantized YOLO deployed on edge devices for surveillance</li>
+      <li>PV Automation: AutoHotKey scripts for data collection every 3 minutes</li>
     </ul>
   </section>
-
   <section id="publications">
     <h2>Publications</h2>
-    <p>8 IEEE papers including:</p>
     <ul>
       <li>Real-time PV Fault Detection (ICPS 2024)</li>
       <li>Infrared Vision for Utility-Scale PV Inspection (IISA 2024)</li>
       <li>Design of a New PV Monitoring Device (IISA 2023)</li>
     </ul>
   </section>
-
   <section id="presentations">
     <h2>Presentations</h2>
     <ul>
@@ -192,54 +228,74 @@
       <li>Arizona Student Energy Conference — 2023</li>
     </ul>
   </section>
-
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:dpujara1@asu.edu">dpujara1@asu.edu</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/deep07-pujara/">deep07-pujara</a></p>
     <a href="Deep_Pujara_Resume.pdf" class="resume-btn" download>Download Resume</a>
   </section>
-
   <footer>
-    <div class="social-icons">
-      <a href="https://github.com/deep07-pujara" target="_blank" title="GitHub">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.867 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.533 1.032 1.533 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.112-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.447-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.849-2.338 4.696-4.566 4.946.36.31.68.921.68 1.857 0 1.34-.012 2.419-.012 2.749 0 .267.18.578.688.48A10.025 10.025 0 0 0 22 12.021C22 6.484 17.523 2 12 2z"></path></svg>
-      </a>
-      <a href="https://www.linkedin.com/in/deep07-pujara/" target="_blank" title="LinkedIn">
-        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.792-1.75-1.732s.784-1.732 1.75-1.732 1.75.792 1.75 1.732-.784 1.732-1.75 1.732zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.871-3.063-1.872 0-2.159 1.462-2.159 2.973v5.694h-3v-10h2.881v1.367h.041c.401-.762 1.381-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.6v5.596z"></path></svg>
-      </a>
-    </div>
     <div style="margin-top:10px;">
       &copy; 2025 Deep Pujara | Built with HTML/CSS | Hosted on GitHub Pages
     </div>
   </footer>
-
-  <!-- Active Section JS -->
   <script>
-    // Get all nav links and section ids
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sectionIds = Array.from(navLinks).map(link => link.getAttribute('href').replace('#',''));
-    const sections = sectionIds.map(id => document.getElementById(id));
+    // Hamburger menu toggle
+    const toggleBtn = document.getElementById('navbar-toggle');
+    const links = document.getElementById('navbar-links');
+    toggleBtn.addEventListener('click', function() {
+      links.classList.toggle('open');
+    });
 
-    function onScroll() {
-      let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
-      let offset = 120; // header height + some margin
-      let activeIdx = 0;
-      for (let i = 0; i < sections.length; i++) {
-        if (sections[i] && sections[i].offsetTop - offset <= scrollPos) {
-          activeIdx = i;
+    // Only one nav item highlighted at a time (hover or active)
+    const navLinks = document.querySelectorAll('.nav-link');
+    let activeIndex = 0;
+
+    // Highlight nav based on scroll
+    function updateActiveNav() {
+      const sections = Array.from(navLinks).map(link => document.getElementById(link.getAttribute('href').slice(1)));
+      let scrollPos = window.scrollY || window.pageYOffset;
+      let found = false;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (sections[i] && sections[i].offsetTop - 90 <= scrollPos) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          navLinks[i].classList.add('active');
+          activeIndex = i;
+          found = true;
+          break;
         }
       }
-      navLinks.forEach((link, i) => {
-        if (i === activeIdx) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
+      if (!found) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        navLinks[0].classList.add('active');
+        activeIndex = 0;
+      }
+    }
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('DOMContentLoaded', updateActiveNav);
+
+    // Only show hover highlight on hovered link, not on active at the same time
+    navLinks.forEach((link, i) => {
+      link.addEventListener('mouseenter', function() {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+      link.addEventListener('mouseleave', function() {
+        updateActiveNav();
+      });
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 600) {
+          links.classList.remove('open');
         }
       });
-    }
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('DOMContentLoaded', onScroll);
+    });
+
+    // Prevent nav links from wrapping
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 600) {
+        links.classList.remove('open');
+      }
+    });
   </script>
 </body>
 </html>

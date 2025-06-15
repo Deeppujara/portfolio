@@ -8,9 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary-color: #004080;
-      --accent-color: #007BFF;
-      --bg-color: #f8f9fa;
+      --primary-color: #ffffff;
+      --accent-color: #00bcd4;
+      --bg-color: #000000;
+      --text-main: #dddddd;
+      --text-heading: #ffffff;
       --font-main: 'Inter', sans-serif;
       --font-heading: 'Poppins', sans-serif;
     }
@@ -19,7 +21,7 @@
       margin: 0;
       font-family: var(--font-main);
       background-color: var(--bg-color);
-      color: #333;
+      color: var(--text-main);
     }
 
     /* Navbar */
@@ -28,8 +30,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      background-color: #111;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -39,7 +41,7 @@
       font-family: var(--font-heading);
       font-size: 1.8em;
       font-weight: 600;
-      color: #003fa5;
+      color: var(--text-heading);
     }
 
     .navbar .nav-links {
@@ -49,44 +51,58 @@
 
     .nav-links a {
       text-decoration: none;
-      color: #003fa5;
+      color: var(--text-heading);
       font-weight: 600;
       font-size: 1.3em;
       position: relative;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 40px;
-      height: 40px;
-      background: transparent;
-      border: 2px solid var(--accent-color);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      transition: transform 0.3s ease;
-      z-index: -1;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
     }
 
     .nav-links a:hover {
       color: var(--accent-color);
+      border: 2px solid var(--accent-color);
     }
 
-    .nav-links a:hover::after {
-      transform: translate(-50%, -50%) scale(1);
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
     }
 
-    /* Hero Section */
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--text-heading);
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        background-color: #111;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       padding: 60px 40px;
-      background: linear-gradient(to right, #f0f4f8, #ffffff);
+      background: linear-gradient(to right, #111, #000);
     }
 
     .hero-img {
@@ -110,7 +126,7 @@
     .hero-text h1 {
       font-size: 2.6em;
       font-family: var(--font-heading);
-      color: var(--primary-color);
+      color: var(--text-heading);
     }
 
     .hero-text p {
@@ -120,7 +136,6 @@
       max-width: 600px;
     }
 
-    /* Section */
     section {
       padding: 60px 40px;
       max-width: 1000px;
@@ -129,7 +144,7 @@
 
     section h2 {
       font-family: var(--font-heading);
-      color: var(--primary-color);
+      color: var(--text-heading);
       font-size: 2em;
       margin-bottom: 20px;
     }
@@ -139,36 +154,11 @@
       line-height: 1.7;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
       font-size: 0.95em;
-      color: #666;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
-      }
-
-      .hero {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .hero-text {
-        padding: 20px 0;
-      }
+      color: #888;
     }
   </style>
 </head>
@@ -176,6 +166,11 @@
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Deep Pujara</div>
+    <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>

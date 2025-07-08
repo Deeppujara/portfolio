@@ -20,7 +20,7 @@
     }
 
     #tsparticles {
-      position: fixed;
+      position: absolute; /* Changed from fixed to absolute */
       width: 100%;
       height: 100%;
       z-index: -1;
@@ -108,9 +108,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0px 20px 30px 20px; 
+      padding: 0px 20px 30px 20px;
       min-height: 80vh;
       position: relative;
+      margin-bottom: 0; /* Removed margin */
+      padding-bottom: 60px; /* Added padding bottom to hero */
     }
 
     .hero-card {
@@ -211,9 +213,17 @@
       50% { border-color: #334346; }
     }
 
+    /* Container for Resume button and Social Links */
+    .hero-actions {
+        margin-top: 20px; /* Space above this container */
+        display: flex; /* Use flexbox */
+        align-items: center; /* Vertically align items */
+        gap: 15px; /* Space between button and links */
+    }
+
     .resume-btn {
-      display: inline-block;
-      margin-top: 20px;
+      /* Existing styles */
+      display: inline-block; /* Keep as inline-block for padding */
       padding: 12px 24px;
       background-color: #334346;
       color: #fff;
@@ -222,6 +232,7 @@
       font-weight: 600;
       border-radius: 10px;
       transition: background-color 0.3s ease;
+      margin-top: 0; /* Remove top margin as handled by hero-actions */
     }
 
     .resume-btn:hover {
@@ -230,6 +241,151 @@
 
     .company-color {
       color: #003193; /* Change this to your desired color */
+    }
+
+    /* Styles for Social Links */
+    .social-links {
+      display: flex;
+      gap: 15px; /* Space between icons */
+      /* Removed margin-top here */
+    }
+
+    .social-links a {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-3px); /* Slight lift effect on hover */
+    }
+
+    .social-links img {
+      width: 30px; /* Size of social icons */
+      height: 30px; /* Size of social icons */
+      object-fit: contain;
+    }
+
+
+    /* New styles for Skills section */
+    .skills-section {
+      padding: 40px 40px; /* Reduced padding top */
+      text-align: center; /* Center the content */
+      /* Removed border-top: 1px solid #ddd; */ /* Removed separator line */
+      background-color: transparent; /* Make section transparent to see background */
+      position: relative; /* Needed for z-index stacking */
+      z-index: 1; /* Ensure content is above particles */
+      margin-top: 0; /* Ensure no extra margin pushing it down */
+    }
+
+    .skills-section h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5em;
+      color: var(--text-heading);
+      margin-bottom: 40px; /* Space below the main heading */
+    }
+
+    .skills-category {
+      margin-bottom: 30px; /* Space below each category */
+    }
+
+    .skills-category h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6em;
+      color: var(--accent-color); /* Use accent color for category headings */
+      margin-bottom: 20px; /* Increased space below category heading to accommodate cards */
+    }
+
+    .skills-list {
+      list-style: none; /* Remove default list bullets */
+      padding: 0; /* Remove default padding */
+      margin: 0;
+      display: flex; /* Use flexbox for horizontal alignment */
+      justify-content: center; /* Center the skill items */
+      flex-wrap: wrap; /* Allow items to wrap to the next line */
+      gap: 20px; /* Space between skill items */
+    }
+
+    .skills-list li {
+      background-color: #fff; /* White background for each skill card */
+      border: 1px solid #ddd; /* Subtle border */
+      border-radius: 10px; /* Rounded corners */
+      padding: 15px; /* Padding inside the card */
+      font-size: 1em;
+      color: var(--text-main);
+      display: flex; /* Use flexbox for content inside card */
+      flex-direction: column; /* Stack logo above text */
+      align-items: center; /* Center content horizontally */
+      width: 120px; /* Fixed width for cards */
+      height: 120px; /* Fixed height for cards */
+      justify-content: center; /* Center content vertically */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+      cursor: pointer; /* Indicate it's clickable (even if not linked) */
+      text-align: center; /* Center text below image */
+    }
+
+    .skills-list li:hover {
+      transform: translateY(-5px); /* Lift effect on hover */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+    }
+
+    .skills-list li img {
+      width: 50px; /* Size of the logo */
+      height: 50px; /* Size of the logo */
+      object-fit: contain; /* Ensure image scales correctly */
+      margin-bottom: 10px; /* Space between logo and text */
+    }
+
+    /* Responsive adjustments for skills section */
+    @media (max-width: 768px) {
+      .skills-section {
+        padding: 40px 20px;
+      }
+
+      .skills-section h2 {
+        font-size: 2em;
+      }
+
+      .skills-category h3 {
+        font-size: 1.4em;
+      }
+
+      .skills-list {
+        gap: 15px; /* Reduce gap on smaller screens */
+      }
+
+      .skills-list li {
+        width: 100px; /* Adjust card size on smaller screens */
+        height: 100px;
+        padding: 10px;
+      }
+
+      .skills-list li img {
+        width: 40px; /* Adjust logo size */
+        height: 40px;
+      }
+       .hero-actions {
+          flex-direction: column; /* Stack button and links vertically on small screens */
+          align-items: center; /* Center items */
+          gap: 10px; /* Adjust gap */
+       }
+       .hero-img {
+        margin-left: 0; /* Remove left margin on small screens */
+      }
+       .hero-text {
+        padding-left: 0; /* Remove left padding on small screens */
+      }
+      .hero {
+        flex-direction: column; /* Stack text and image vertically on small screens */
+        text-align: center; /* Center text content on small screens */
+      }
+       .hero-text h1,
+       .hero-subtitle,
+       .role-line,
+       .hero-text p {
+           text-align: center; /* Center text */
+       }
+
     }
 
   </style>
@@ -248,6 +404,7 @@
     </div>
     <nav class="nav-links">
       <a href="#about">About</a>
+      <a href="#skills">Skills</a> <!-- Link for skills -->
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#publications">Publications</a>
@@ -268,17 +425,116 @@
       <p>
         I'm a Ph.D. student at Arizona State University specializing in solar energy, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.
       </p>
-      <a href="Deep_Pujara_Resume.pdf" class="resume-btn" target="_blank">View Resume</a>
+
+      <!-- Container for Resume button and Social Links -->
+      <div class="hero-actions">
+          <a href="Deep_Pujara_Resume.pdf" class="resume-btn" target="_blank">View Resume</a>
+          <div class="social-links">
+              <a href="https://www.linkedin.com/in/deep07-pujara/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+          </div>
+      </div>
+
     </div>
     <div class="hero-img">
       <img src="profile.png" alt="Deep Pujara" />
     </div>
   </section>
 
+  <!-- Skills Section -->
+  <section class="skills-section" id="skills">
+    <h2>Skills</h2> <!-- Changed heading to "Skills" -->
+
+    <div class="skills-category">
+      <h3>Programming</h3>
+      <ul class="skills-list">
+        <li>
+          <img src="Python.png" alt="Python Logo">
+          Python
+        </li>
+        <li>
+          <img src="Matlab.png" alt="MATLAB Logo">
+          MATLAB
+        </li>
+        <li>
+          <img src="C++.png" alt="C++ Logo">
+          C++
+        </li>
+      </ul>
+    </div>
+
+    <div class="skills-category">
+      <h3>Python Packages</h3>
+      <ul class="skills-list">
+        <li>
+          <img src="Tensorflow.png" alt="TensorFlow Logo">
+          TensorFlow
+        </li>
+        <li>
+          <img src="Pytorch.png" alt="PyTorch Logo">
+          PyTorch
+        </li>
+        <li>
+          <img src="Numpy.png" alt="NumPy Logo">
+          NumPy
+        </li>
+        <li>
+          <img src="Matplotlib.png" alt="Matplotlib Logo">
+          Matplotlib
+        </li>
+        <li>
+          <img src="pandas.png" alt="Pandas Logo">
+          Pandas
+        </li>
+        <li>
+          <img src="scikit-learn.png" alt="Scikit-Learn Logo">
+          Scikit-Learn
+        </li>
+      </ul>
+    </div>
+
+    <div class="skills-category">
+      <h3>Software</h3>
+      <ul class="skills-list">
+        <li>
+          <img src="vscode.png" alt="Visual Studio Code Logo">
+          Visual Studio Code
+        </li>
+        <li>
+          <img src="simulink.jpg" alt="Simulink Logo">
+          Simulink
+        </li>
+        <li>
+          <img src="git.png" alt="Git Logo">
+          Git
+        </li>
+        <li>
+          <img src="latex.png" alt="LaTeX Logo">
+          LaTeX
+        </li>
+        <li>
+          <img src="jira.svg" alt="Jira Logo">
+          Jira
+        </li>
+        <li>
+          <img src="confluence.png" alt="Confluence Logo">
+          Confluence
+        </li>
+        <li>
+          <img src="msoffice.jpg" alt="Microsoft Office Logo">
+          Microsoft Office
+        </li>
+        <li>
+          <img src="arduino.png" alt="Arduino IDE Logo">
+          Arduino IDE
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- tsParticles Config Script -->
   <script>
     tsParticles.load("tsparticles", {
-      fullScreen: { enable: false },
+      fullScreen: { enable: false }, // Changed to false to allow scrolling
       background: { color: "#ffffff00" },
       particles: {
         number: { value: 50 },

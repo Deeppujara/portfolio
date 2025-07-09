@@ -87,8 +87,7 @@
       color: #334346;
       border: 2px solid #334346;
     }
-
-    /* --- CHANGED: Hide hamburger on desktop --- */
+    
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -225,29 +224,30 @@
       .nav-links {
         display: none; /* Hide by default */
         position: absolute;
-        top: 100%; /* Position below the navbar */
+        top: 100%; /* Position right below the navbar */
         left: 0;
         width: 100%;
         background-color: #ffffff;
         flex-direction: column;
         box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid #f0f0f0;
       }
       .nav-links.active {
         display: flex; /* Show when active */
       }
       .nav-links a {
         display: block;
-        padding: 15px;
+        padding: 20px;
         text-align: center;
         border-radius: 0;
         border-bottom: 1px solid #f0f0f0;
       }
       .nav-links a:hover {
         background-color: #f9f9f9;
-        border-color: transparent; /* Remove border on hover for mobile */
+        border-color: transparent;
       }
       .menu-toggle {
-        display: flex; /* Show the hamburger icon */
+        display: flex;
       }
       
       /* Hero mobile styles */
@@ -258,7 +258,7 @@
       .hero-text h1, .hero-subtitle, .role-line, .hero-text p { text-align: center; }
       .hero-text h1 { font-size: 2.5em; justify-content: center; }
       .hero-subtitle { font-size: 1.2em; }
-      .hero-actions { justify-content: center; }
+      .hero-actions { flex-direction: column; gap: 20px; }
 
       /* Skills mobile styles */
       .skills-list li { width: 100px; height: 100px; padding: 10px; }
@@ -270,7 +270,7 @@
 
       /* Education mobile styles */
       .education-layout { flex-direction: column; }
-      .education-slider { display: none; } /* Hide slider on mobile */
+      .education-slider { display: none; }
       .education-item { flex-direction: column; text-align: center; gap: 20px; margin-bottom: 40px; }
       .education-details { text-align: center; }
     }
@@ -486,8 +486,26 @@
     const company="Skyworks Solutions",typeElem=document.getElementById("typewriter-company");let letterIndex=0,typing=!0;function typeCompanyLoop(){typing?letterIndex<=company.length?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,letterIndex++)}</span>`,setTimeout(typeCompanyLoop,90)):(typing=!1,setTimeout(typeCompanyLoop,1200)):letterIndex>0?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,--letterIndex)}</span>`,setTimeout(typeCompanyLoop,40)):(typing=!0,setTimeout(typeCompanyLoop,500))}typeCompanyLoop();
     document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("python-skill-trigger"),e=document.getElementById("python-packages-category");t.addEventListener("click",()=>{e.classList.toggle("visible"),t.classList.toggle("expanded")})});
 
-    // Education Slider Script
+    // --- UPDATED SCRIPT for Mobile Menu and Education Slider ---
     document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Nav Toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      const allLinks = document.querySelectorAll('.nav-links a');
+
+      // This part is already handled by the onclick attribute, but it's cleaner here.
+      // menuToggle.addEventListener('click', () => {
+      //   navLinks.classList.toggle('active');
+      // });
+
+      // Close menu when a link is clicked
+      allLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // Education Slider Script
       const educationItems = document.querySelectorAll('.education-item');
       const sliderNodes = document.querySelectorAll('.slider-node');
 

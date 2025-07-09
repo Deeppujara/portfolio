@@ -1,0 +1,107 @@
+/* --- START: NAVBAR CSS --- */
+
+/* Main Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-family: var(--font-heading);
+  font-size: 1.8em;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+/* Desktop Navigation Links */
+.nav-links-desktop {
+  display: flex; /* Visible by default on large screens */
+}
+
+.nav-links-desktop a {
+  text-decoration: none;
+  color: var(--text-heading);
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.nav-links-desktop a:hover {
+  color: #334346;
+  border: 2px solid #334346;
+}
+
+/* Hamburger Menu Button */
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-heading);
+  border-radius: 2px;
+}
+
+/* Mobile Navigation Dropdown */
+.nav-links-mobile {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 75px; /* Adjust this value based on your navbar height */
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  flex-direction: column;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  z-index: 999; /* Ensure it's below the main navbar but above content */
+}
+
+/* This class is added by JavaScript to show the mobile menu */
+.nav-links-mobile.active {
+  display: flex;
+}
+
+.nav-links-mobile a {
+  display: block;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-heading);
+  font-weight: 600;
+  font-size: 1.2em;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-links-mobile a:hover {
+  background-color: #f9f9f9;
+}
+
+
+/* --- Responsive Styles for the Navbar --- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+  
+  .nav-links-desktop {
+    display: none; /* Hide desktop links on mobile */
+  }
+
+  .menu-toggle {
+    display: flex; /* Show the hamburger icon on mobile */
+  }
+}
+
+/* --- END: NAVBAR CSS --- */

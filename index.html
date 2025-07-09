@@ -222,9 +222,9 @@
         padding: 15px 20px;
       }
       .nav-links {
-        display: none; /* Hide by default */
+        display: none;
         position: absolute;
-        top: 100%; /* Position right below the navbar */
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: #ffffff;
@@ -233,7 +233,7 @@
         border-top: 1px solid #f0f0f0;
       }
       .nav-links.active {
-        display: flex; /* Show when active */
+        display: flex;
       }
       .nav-links a {
         display: block;
@@ -486,22 +486,18 @@
     const company="Skyworks Solutions",typeElem=document.getElementById("typewriter-company");let letterIndex=0,typing=!0;function typeCompanyLoop(){typing?letterIndex<=company.length?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,letterIndex++)}</span>`,setTimeout(typeCompanyLoop,90)):(typing=!1,setTimeout(typeCompanyLoop,1200)):letterIndex>0?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,--letterIndex)}</span>`,setTimeout(typeCompanyLoop,40)):(typing=!0,setTimeout(typeCompanyLoop,500))}typeCompanyLoop();
     document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("python-skill-trigger"),e=document.getElementById("python-packages-category");t.addEventListener("click",()=>{e.classList.toggle("visible"),t.classList.toggle("expanded")})});
 
-    // --- UPDATED SCRIPT for Mobile Menu and Education Slider ---
+    // Education Slider & Mobile Nav Script
     document.addEventListener('DOMContentLoaded', () => {
       // Mobile Nav Toggle
-      const menuToggle = document.querySelector('.menu-toggle');
       const navLinks = document.querySelector('.nav-links');
       const allLinks = document.querySelectorAll('.nav-links a');
 
-      // This part is already handled by the onclick attribute, but it's cleaner here.
-      // menuToggle.addEventListener('click', () => {
-      //   navLinks.classList.toggle('active');
-      // });
-
-      // Close menu when a link is clicked
+      // This logic is already handled by your onclick attribute, so this script focuses on the *closing* behavior.
       allLinks.forEach(link => {
         link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
+          if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+          }
         });
       });
 

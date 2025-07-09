@@ -178,48 +178,7 @@
     <p>© 2025 Deep Pujara. All rights reserved.</p>
   </footer>
 
-  <!-- --- JAVASCRIPT REFACTORED START --- -->
-  <script>
-    // All other scripts remain the same
-    tsParticles.load("tsparticles",{fullScreen:{enable:!1},background:{color:"#ffffff00"},particles:{number:{value:50},color:{value:"#6a6a6a"},shape:{type:"circle"},opacity:{value:.5},size:{value:{min:1,max:5}},move:{enable:!0,speed:1.5,direction:"none",outModes:"bounce"},links:{enable:!0,distance:150,color:"#6a6a6a",opacity:.3,width:1}},interactivity:{events:{onHover:{enable:!0,mode:"repulse"},onClick:{enable:!0,mode:"push"}},modes:{repulse:{distance:100},push:{quantity:4}}}});
-    const company="Skyworks Solutions",typeElem=document.getElementById("typewriter-company");let letterIndex=0,typing=!0;function typeCompanyLoop(){typing?letterIndex<=company.length?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,letterIndex++)}</span>`,setTimeout(typeCompanyLoop,90)):(typing=!1,setTimeout(typeCompanyLoop,1200)):letterIndex>0?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,--letterIndex)}</span>`,setTimeout(typeCompanyLoop,40)):(typing=!0,setTimeout(typeCompanyLoop,500))}typeCompanyLoop();
-    document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("python-skill-trigger"),e=document.getElementById("python-packages-category");t.addEventListener("click",()=>{e.classList.toggle("visible"),t.classList.toggle("expanded")})});
-    document.addEventListener('DOMContentLoaded', () => {
-      const educationItems = document.querySelectorAll('.education-item');
-      const sliderNodes = document.querySelectorAll('.slider-node');
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            educationItems.forEach(item => item.classList.remove('active'));
-            sliderNodes.forEach(node => node.classList.remove('active'));
-            entry.target.classList.add('active');
-            document.querySelector(`.slider-node[data-target="${id}"]`).classList.add('active');
-          }
-        });
-      }, { rootMargin: "-40% 0px -40% 0px" });
-      educationItems.forEach(item => { observer.observe(item); });
-    });
-
-    // --- NEW NAVBAR SCRIPT ---
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.getElementById('menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-
-      // 1. Toggle mobile menu on hamburger click
-      menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-      });
-
-      // 2. Close mobile menu when a link is clicked
-      mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('active');
-        });
-      });
-    });
-  </script>
-  <!-- --- JAVASCRIPT REFACTORED END --- -->
+  <!-- This is the new line -->
+  <script src="script.js"></script>
 </body>
 </html>

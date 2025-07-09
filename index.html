@@ -11,6 +11,62 @@
   
   <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <div id="tsparticles"></div>
+
+  <!-- HEADER AND NAVIGATION -->
+  <header class="navbar">
+    <div class="logo">Deep Pujara</div>
+
+    <!-- Hamburger Icon for Mobile -->
+    <div id="menu-toggle" class="menu-toggle">
+      <div></div><div></div><div></div>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-links-desktop">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  
+  <!-- Mobile Navigation (Dropdown) -->
+  <nav id="mobile-menu" class="nav-links-mobile">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero section-container" id="about">
+    <div class="hero-text">
+      <h1><span class="wave">👋🏻</span> Hi, I am</h1>
+      <h1>Deep Pujara</h1>
+      <div class="hero-subtitle">Machine Learning and Solar Researcher</div>
+      <div class="role-line">AI Intern at<span id="typewriter-company"></span></div>
+      <p>I'm a Ph.D. student at Arizona State University specializing in solar energy, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.</p>
+      <div class="hero-actions">
+          <a href="Deep_Pujara_Resume.pdf" class="resume-btn" target="_blank">View Resume</a>
+          <div class="social-links">
+              <a href="https://www.linkedin.com/in/deep07-pujara/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+          </div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="profile.png" alt="Deep Pujara" />
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
   <section class="section-container" id="skills">
     <h2 class="section-heading">Skills</h2>
     <div class="skills-category">
@@ -35,6 +91,7 @@
     </div>
   </section>
 
+  <!-- EXPERIENCE SECTION -->
   <section class="section-container" id="experience">
     <h2 class="section-heading">Experience</h2>
     <div class="item-container">
@@ -81,6 +138,7 @@
     </div>
   </section>
 
+    <!-- PROJECTS SECTION -->
   <section class="section-container" id="projects">
     <h2 class="section-heading">Projects</h2>
     <div class="item-container">
@@ -103,6 +161,7 @@
     </div>
   </section>
 
+    <!-- EDUCATION SECTION -->
   <section class="section-container" id="education">
     <h2 class="section-heading">Education</h2>
     <div class="education-layout">
@@ -149,6 +208,7 @@
     </div>
   </section>
 
+    <!-- PUBLICATIONS SECTION -->
   <section class="section-container" id="publications">
     <h2 class="section-heading">Publications</h2>
     <ol class="publications-list">
@@ -163,6 +223,7 @@
     </ol>
   </section>
   
+    <!-- CONTACT SECTION -->
   <section class="section-container" id="contact">
     <h2 class="section-heading">Contact Me</h2>
     <p class="contact-text">
@@ -174,11 +235,11 @@
     </div>
   </section>
 
+  <!-- FOOTER SECTION -->
   <footer>
     <p>© 2025 Deep Pujara. All rights reserved.</p>
   </footer>
 
-  <!-- This is the new line -->
   <script src="script.js"></script>
 </body>
 </html>

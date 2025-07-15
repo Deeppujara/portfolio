@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Deep Pujara | Portfolio</title>
-<link rel="icon" href="profile.png" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet"/>
-<!-- tsParticles CDN -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Deep Pujara | Portfolio</title>
+    <link rel="icon" href="profile.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet"/>
+    <!-- tsParticles CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-N80KQQCR7S'); // <-- REPLACE G-XXXXXXXXXX WITH YOUR MEASUREMENT ID
+    </script>
 <style>
 :root {
 --primary-color: #ffffff;
@@ -391,10 +401,10 @@ footer { text-align: center; padding: 30px 40px; margin-top: 40px; border-top: 1
 <div class="role-line">AI Intern at<span id="typewriter-company"></span></div>
 <p>I'm a Ph.D. student at Arizona State University specializing in solar energy, embedded machine learning, and signal processing. Bridging research with real-world deployment through hardware-software integration, cloud-based ML, and industry collaborations. Passionate about innovation in clean tech and intelligent edge devices.</p>
 <div class="hero-actions">
-<a href="Deep_Pujara_Resume.pdf" class="resume-btn" target="_blank">View Resume</a>
-<div class="social-links">
-<a href="https://www.linkedin.com/in/deep07-pujara/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
-</div>
+    <a href="Deep_Pujara_Resume.pdf" id="resumeBtn" class="resume-btn" target="_blank">View Resume</a>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/deep07-pujara/" id="linkedinLink" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+    </div>
 </div>
 </div>
 <div class="hero-img">
@@ -679,107 +689,143 @@ I'm excited to discuss new opportunities, collaborations, or ideas about technol
 </div>
 </section>
 <footer>
-<p>© 2025 Deep Pujara. All rights reserved.</p>
+    <p>© 2025 Deep Pujara. All rights reserved.</p>
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-// --- tsParticles Background ---
-tsParticles.load("tsparticles",{fullScreen:{enable:!1},background:{color:"#ffffff00"},particles:{number:{value:50},color:{value:"#6a6a6a"},shape:{type:"circle"},opacity:{value:.5},size:{value:{min:1,max:5}},move:{enable:!0,speed:1.5,direction:"none",outModes:"bounce"},links:{enable:!0,distance:150,color:"#6a6a6a",opacity:.3,width:1}},interactivity:{events:{onHover:{enable:!0,mode:"repulse"},onClick:{enable:!0,mode:"push"}},modes:{repulse:{distance:100},push:{quantity:4}}}});
+    // --- tsParticles Background ---
+    tsParticles.load("tsparticles",{fullScreen:{enable:!1},background:{color:"#ffffff00"},particles:{number:{value:50},color:{value:"#6a6a6a"},shape:{type:"circle"},opacity:{value:.5},size:{value:{min:1,max:5}},move:{enable:!0,speed:1.5,direction:"none",outModes:"bounce"},links:{enable:!0,distance:150,color:"#6a6a6a",opacity:.3,width:1}},interactivity:{events:{onHover:{enable:!0,mode:"repulse"},onClick:{enable:!0,mode:"push"}},modes:{repulse:{distance:100},push:{quantity:4}}}});
 
-// --- Typewriter Effect ---
-const company="Skyworks Solutions",typeElem=document.getElementById("typewriter-company");let letterIndex=0,typing=!0;function typeCompanyLoop(){if(!typeElem) return; typing?letterIndex<=company.length?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,letterIndex++)}</span>`,setTimeout(typeCompanyLoop,90)):(typing=!1,setTimeout(typeCompanyLoop,1200)):letterIndex>0?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,--letterIndex)}</span>`,setTimeout(typeCompanyLoop,40)):(typing=!0,setTimeout(typeCompanyLoop,500))}typeCompanyLoop();
+    // --- Typewriter Effect ---
+    const company="Skyworks Solutions",typeElem=document.getElementById("typewriter-company");let letterIndex=0,typing=!0;function typeCompanyLoop(){if(!typeElem) return; typing?letterIndex<=company.length?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,letterIndex++)}</span>`,setTimeout(typeCompanyLoop,90)):(typing=!1,setTimeout(typeCompanyLoop,1200)):letterIndex>0?(typeElem.innerHTML=`<span class="company-color">${company.slice(0,--letterIndex)}</span>`,setTimeout(typeCompanyLoop,40)):(typing=!0,setTimeout(typeCompanyLoop,500))}typeCompanyLoop();
 
-// --- Python Skill Toggle ---
-const pythonSkillTrigger=document.getElementById("python-skill-trigger"),pythonPackages=document.getElementById("python-packages-category");pythonSkillTrigger&&pythonSkillTrigger.addEventListener("click",()=>{pythonPackages.classList.toggle("visible"),pythonSkillTrigger.classList.toggle("expanded")});
+    // --- Python Skill Toggle ---
+    const pythonSkillTrigger=document.getElementById("python-skill-trigger"),pythonPackages=document.getElementById("python-packages-category");pythonSkillTrigger&&pythonSkillTrigger.addEventListener("click",()=>{pythonPackages.classList.toggle("visible"),pythonSkillTrigger.classList.toggle("expanded")});
 
-// --- Education Slider & Item Highlighting ---
-const educationItems = document.querySelectorAll('.education-item');
-const sliderNodes = document.querySelectorAll('.slider-node');
-if (educationItems.length > 0 && sliderNodes.length > 0) {
-const eduObserver = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-const id = entry.target.id;
-educationItems.forEach(item => item.classList.remove('active'));
-sliderNodes.forEach(node => node.classList.remove('active'));
-entry.target.classList.add('active');
-const activeNode = document.querySelector(`.slider-node[data-target="${id}"]`);
-if (activeNode) activeNode.classList.add('active');
-}
-});
-}, { rootMargin: "-40% 0px -40% 0px" });
-educationItems.forEach(item => eduObserver.observe(item));
-}
+    // --- Education Slider & Item Highlighting ---
+    const educationItems = document.querySelectorAll('.education-item');
+    const sliderNodes = document.querySelectorAll('.slider-node');
+    if (educationItems.length > 0 && sliderNodes.length > 0) {
+    const eduObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+    const id = entry.target.id;
+    educationItems.forEach(item => item.classList.remove('active'));
+    sliderNodes.forEach(node => node.classList.remove('active'));
+    entry.target.classList.add('active');
+    const activeNode = document.querySelector(`.slider-node[data-target="${id}"]`);
+    if (activeNode) activeNode.classList.add('active');
+    }
+    });
+    }, { rootMargin: "-40% 0px -40% 0px" });
+    educationItems.forEach(item => eduObserver.observe(item));
+    }
 
-// --- Mobile Menu Auto-Close ---
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const navLinkItems = document.querySelectorAll('.nav-links a');
-const closeMenu = () => navLinks.classList.remove('active');
-navLinkItems.forEach(link => link.addEventListener('click', closeMenu));
-document.addEventListener('click', (event) => {
-const isClickInsideNav = navLinks.contains(event.target);
-const isClickOnToggle = menuToggle.contains(event.target);
-if (navLinks.classList.contains('active') && !isClickInsideNav && !isClickOnToggle) {
-closeMenu();
-}
-});
+    // --- Mobile Menu Auto-Close ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinkItems = document.querySelectorAll('.nav-links a');
+    const closeMenu = () => navLinks.classList.remove('active');
+    navLinkItems.forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('click', (event) => {
+    const isClickInsideNav = navLinks.contains(event.target);
+    const isClickOnToggle = menuToggle.contains(event.target);
+    if (navLinks.classList.contains('active') && !isClickInsideNav && !isClickOnToggle) {
+    closeMenu();
+    }
+    });
 
-// --- Nav Link Highlighting on Scroll ---
-const sections = document.querySelectorAll('section[id]');
-const navLinksForScroll = document.querySelectorAll('.nav-links a');
-if (sections.length > 0 && navLinksForScroll.length > 0) {
-const scrollObserver = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-const id = entry.target.getAttribute('id');
-navLinksForScroll.forEach(link => {
-link.classList.remove('nav-link-active');
-if (link.getAttribute('href') === `#${id}`) {
-link.classList.add('nav-link-active');
-}
-});
-}
-});
-}, { rootMargin: '-20% 0px -65% 0px' });
-sections.forEach(section => scrollObserver.observe(section));
-}
+    // --- Nav Link Highlighting on Scroll ---
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksForScroll = document.querySelectorAll('.nav-links a');
+    if (sections.length > 0 && navLinksForScroll.length > 0) {
+    const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+    const id = entry.target.getAttribute('id');
+    navLinksForScroll.forEach(link => {
+    link.classList.remove('nav-link-active');
+    if (link.getAttribute('href') === `#${id}`) {
+    link.classList.add('nav-link-active');
+    }
+    });
+    }
+    });
+    }, { rootMargin: '-20% 0px -65% 0px' });
+    sections.forEach(section => scrollObserver.observe(section));
+    }
 
-// --- Interactive Publications ---
-const publicationItems = document.querySelectorAll('.publication-item');
-publicationItems.forEach(item => {
-item.addEventListener('click', (event) => {
-if (event.target.closest('.publication-actions')) return;
+    // --- Interactive Publications ---
+    const publicationItems = document.querySelectorAll('.publication-item');
+    publicationItems.forEach(item => {
+    item.addEventListener('click', (event) => {
+    if (event.target.closest('.publication-actions')) return;
 
-const details = item.querySelector('.publication-details');
-const wasActive = item.classList.contains('active');
+    const details = item.querySelector('.publication-details');
+    const wasActive = item.classList.contains('active');
 
-// Close all items
-publicationItems.forEach(i => {
-i.classList.remove('active');
-i.querySelector('.publication-details').classList.remove('visible');
-});
+    // Close all items
+    publicationItems.forEach(i => {
+    i.classList.remove('active');
+    i.querySelector('.publication-details').classList.remove('visible');
+    });
 
-// If the clicked item was not already active, open it
-if (!wasActive) {
-item.classList.add('active');
-details.classList.add('visible');
-}
-});
-});
+    // If the clicked item was not already active, open it
+    if (!wasActive) {
+    item.classList.add('active');
+    details.classList.add('visible');
+    }
+    });
+    });
 
-const copyButtons = document.querySelectorAll('.copy-btn');
-copyButtons.forEach(button => {
-button.addEventListener('click', (event) => {
-event.stopPropagation();
-const citationText = button.dataset.citation;
-navigator.clipboard.writeText(citationText).then(() => {
-const originalText = button.textContent;
-button.textContent = 'Copied!';
-setTimeout(() => { button.textContent = originalText; }, 2000);
-}).catch(err => console.error('Failed to copy: ', err));
-});
-});
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    copyButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const citationText = button.dataset.citation;
+    navigator.clipboard.writeText(citationText).then(() => {
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    setTimeout(() => { button.textContent = originalText; }, 2000);
+    }).catch(err => console.error('Failed to copy: ', err));
+    });
+    });
+
+    // ===================================================================
+    // --- Google Analytics Event Tracking ---
+    // ===================================================================
+
+    // Track "View Resume" button click
+    const resumeBtn = document.getElementById('resumeBtn');
+    if(resumeBtn) {
+        resumeBtn.addEventListener('click', () => {
+            gtag('event', 'button_click', {
+                'button_name': 'View Resume'
+            });
+        });
+    }
+
+    // Track "LinkedIn" link click in the hero section
+    const linkedinHeroLink = document.getElementById('linkedinHeroLink');
+    if(linkedinHeroLink) {
+        linkedinHeroLink.addEventListener('click', () => {
+            gtag('event', 'social_link_click', {
+                'social_platform': 'LinkedIn',
+                'location': 'Hero Section'
+            });
+        });
+    }
+
+    // Track "Email Me" button click in the contact section
+    const emailContactBtn = document.getElementById('emailContactBtn');
+    if(emailContactBtn) {
+        emailContactBtn.addEventListener('click', () => {
+            gtag('event', 'button_click', {
+                'button_name': 'Email Me'
+            });
+        });
+    }
+
 });
 </script>
 </body>

@@ -335,6 +335,58 @@ body {
   border-color: #3a4344;
 }
 
+/* Talks & Presentations Section */
+.presentations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.presentation-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.presentation-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+.presentation-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #f0f0f0; /* Placeholder color */
+}
+.presentation-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.presentation-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25em;
+    margin: 0 0 8px 0;
+    color: var(--text-heading);
+}
+.presentation-date {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+.presentation-description {
+    font-size: 1em;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin: 0;
+}
+
 /* New Contact Section */
 #contact { text-align: center; }
 .contact-text { max-width: 650px; margin: 0 auto 40px auto; font-size: 1.4em; line-height: 1.6; color: var(--text-heading); }
@@ -390,6 +442,7 @@ footer { text-align: center; padding: 30px 40px; margin-top: 40px; border-top: 1
 <a href="#projects">Projects</a>
 <a href="#education">Education</a>
 <a href="#publications">Publications</a>
+<a href="#presentations">Presentations</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
@@ -678,6 +731,126 @@ D. Pujara, P. Kukreja and S. Gajjar, "Design and Development of E-Sense: IoT bas
 </li>
 </ul>
 </section>
+
+<!-- New Talks & Presentations Section -->
+<section class="section-container" id="presentations">
+    <h2 class="section-heading">Talks & Presentations</h2>
+    <div class="presentations-grid">
+        <div class="presentation-card">
+            <img src="presentation1.jpg" alt="Presentation at SenSIP Industry Consortium 2025" class="presentation-image">
+            <div class="presentation-content">
+                <h3>PV Fault Detection & Topology Optimization</h3>
+                <div class="presentation-date">June 2025 | SenSIP Industry Consortium</div>
+                <p class="presentation-description">Presented my research work on real-time PV fault detection and topology optimization with embedded ML at the 2025 SenSIP Industry Consortium, ASU.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation2.jpg" alt="Presentation to REU and RET Programs" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Applied Solar Energy Research</h3>
+                <div class="presentation-date">June 2025 | REU & RET Programs @ SenSIP ASU</div>
+                <p class="presentation-description">Shared the practical side of my Ph.D. research with REUs and RETs at the ASU Research Park's SenSIP solar facility.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation3.jpg" alt="Solar Energy Journal Reviewer" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Beginning of the Research Paper Review Journey</h3>
+                <div class="presentation-date">June 2025 | Solar Energy Journal (Elsevier)</div>
+                <p class="presentation-description">Started reviewing research papers in my field, beginning with a manuscript in Solar Energy and Machine Learning from the reputed journal Solar Energy (Elsevier).</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation4.jpg" alt="Presentation at UKIM–ASU Student Workshop" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Topology Reconfiguration with Embedded ML</h3>
+                <div class="presentation-date">May 2025 | UKIM–ASU Student Workshop</div>
+                <p class="presentation-description">Presented my research work on topology reconfiguration under partial shading at a collaborative workshop with Ss. Cyril and Methodius University, Skopje, Macedonia.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation5.jpg" alt="Presentation at CISE REU PI Workshop 2025" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Enhancing REU Experience</h3>
+                <div class="presentation-date">April 2025 | CISE REU PI Workshop</div>
+                <p class="presentation-description">Represented the ASU-SenSIP REU site to discuss strategies for REU student engagement and pathways to graduate studies.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation6.jpg" alt="SenSIP Certificate" class="presentation-image">
+            <div class="presentation-content">
+                <h3>SenSIP Certificate</h3>
+                <div class="presentation-date">December 2024 | SenSIP Lab @ ASU </div>
+                <p class="presentation-description">Received the ASU-SenSIP Certificate from my professor Dr. Andreas Spanias at the Arizona State University for my work and learning in the field of Sensor, Signal, and Information Processing.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation7.jpg" alt="Presentation to Tecnológico de Monterrey Delegation" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Embedded ML for Solar Monitoring</h3>
+                <div class="presentation-date">November 2024 | ITESM Delegation Visit</div>
+                <p class="presentation-description">Demonstrated our custom hardware and embedded ML research for solar monitoring to visiting professors from Tecnológico de Monterrey.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation8.jpg" alt="Presentation at SenSIP Industry Consortium 2024" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Real-time PV Fault Detection</h3>
+                <div class="presentation-date">June 2024 | SenSIP Industry Consortium</div>
+                <p class="presentation-description">Presented research on using embedded machine learning for real-time fault detection in photovoltaic systems at SenSIP Industry Consortium 2024.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation9.jpg" alt="Presentation at Arizona Student Energy Conference 2024" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Real-time PV Fault Detection</h3>
+                <div class="presentation-date">March 2024 | Arizona Student Energy Conference</div>
+                <p class="presentation-description">Shared work on applying embedded ML for the immediate detection of faults in solar panels at the Arizona Student Energy Conference 2024.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation10.jpg" alt="Internship at Skyworks Solutions" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Summer Internship at Skyworks Solutions</h3>
+                <div class="presentation-date">May 2023 | Skyworks, Austin, Texas</div>
+                <p class="presentation-description">Engineered and presented a custom PCB and C++ driver solution for USB to SPI bridge board during my summer internship at Skyworks Solutions.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation11.jpg" alt="Presentation at SenSIP Industry Consortium 2023" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Photovoltaic Monitoring Device implementation</h3>
+                <div class="presentation-date">May 2023 | SenSIP Industry Consortium</div>
+                <p class="presentation-description">Outlined the design and implementation of a the photovoltaic monitoring device at the annual SenSIP Industry Consortium 2023.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation12.jpg" alt="Presentation at Arizona Student Energy Conference 2023" class="presentation-image">
+            <div class="presentation-content">
+                <h3>A New Intelligent PV Monitoring Device</h3>
+                <div class="presentation-date">February 2023 | Arizona Student Energy Conference</div>
+                <p class="presentation-description">Presented the design of a new intelligent device for monitoring and controlling photovoltaic systems to optimize energy output.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation13.jpg" alt="Mentoring for RET Program" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Mentoring for Research Experience for Teachers</h3>
+                <div class="presentation-date">July 2022 | RET Program @ SenSIP ASU</div>
+                <p class="presentation-description">Mentored K-12 teachers in the basics of MATLAB, Python, and Machine Learning as part of the NSF-funded RET program.</p>
+            </div>
+        </div>
+        <div class="presentation-card">
+            <img src="presentation14.jpg" alt="Mentoring for REU/IRES Programs" class="presentation-image">
+            <div class="presentation-content">
+                <h3>Mentoring for REU & IRES Programs</h3>
+                <div class="presentation-date">June 2022 | REU & IRES Programs @ SenSIP ASU</div>
+                <p class="presentation-description">Guided undergraduate students in the REU and IRES programs through the fundamentals of MATLAB and Python for their research projects.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="section-container" id="contact">
 <h2 class="section-heading">Contact Me</h2>
 <p class="contact-text">
